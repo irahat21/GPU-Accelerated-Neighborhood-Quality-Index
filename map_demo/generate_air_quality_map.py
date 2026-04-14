@@ -10,7 +10,7 @@ import pandas as pd
 
 DEFAULT_BOUNDARY = Path("map_demo/data/uhf42.geojson")
 DEFAULT_AIR_TABLE = Path("outputs/air_quality_table.csv")
-DEFAULT_OUTPUT = Path("map_demo/output/air_quality_map.html")
+DEFAULT_OUTPUT = Path("map_demo/demo/air_quality_map.html")
 
 
 def load_air_scores(csv_path: Path) -> pd.DataFrame:
