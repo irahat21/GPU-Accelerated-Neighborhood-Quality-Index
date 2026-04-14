@@ -1,0 +1,1192 @@
+{
+  "10001": {
+    "neighborhood": "Chelsea",
+    "air": 62,
+    "water": 78,
+    "edu": 81,
+    "nypd": 44
+  },
+  "10002": {
+    "neighborhood": "Lower East Side",
+    "air": 55,
+    "water": 71,
+    "edu": 73,
+    "nypd": 38
+  },
+  "10003": {
+    "neighborhood": "East Village",
+    "air": 68,
+    "water": 82,
+    "edu": 88,
+    "nypd": 52
+  },
+  "10004": {
+    "neighborhood": "Financial District",
+    "air": 80,
+    "water": 90,
+    "edu": 91,
+    "nypd": 70
+  },
+  "10005": {
+    "neighborhood": "Financial District",
+    "air": 77,
+    "water": 88,
+    "edu": 90,
+    "nypd": 68
+  },
+  "10006": {
+    "neighborhood": "Financial District",
+    "air": 74,
+    "water": 86,
+    "edu": 89,
+    "nypd": 65
+  },
+  "10007": {
+    "neighborhood": "Tribeca",
+    "air": 72,
+    "water": 85,
+    "edu": 87,
+    "nypd": 61
+  },
+  "10009": {
+    "neighborhood": "Alphabet City",
+    "air": 58,
+    "water": 74,
+    "edu": 76,
+    "nypd": 42
+  },
+  "10010": {
+    "neighborhood": "Gramercy Park",
+    "air": 65,
+    "water": 80,
+    "edu": 84,
+    "nypd": 55
+  },
+  "10011": {
+    "neighborhood": "Chelsea",
+    "air": 70,
+    "water": 83,
+    "edu": 86,
+    "nypd": 58
+  },
+  "10012": {
+    "neighborhood": "Greenwich Village",
+    "air": 66,
+    "water": 81,
+    "edu": 85,
+    "nypd": 54
+  },
+  "10013": {
+    "neighborhood": "SoHo",
+    "air": 63,
+    "water": 79,
+    "edu": 82,
+    "nypd": 50
+  },
+  "10014": {
+    "neighborhood": "West Village",
+    "air": 71,
+    "water": 84,
+    "edu": 87,
+    "nypd": 60
+  },
+  "10016": {
+    "neighborhood": "Murray Hill",
+    "air": 64,
+    "water": 79,
+    "edu": 83,
+    "nypd": 53
+  },
+  "10017": {
+    "neighborhood": "Midtown East",
+    "air": 61,
+    "water": 77,
+    "edu": 85,
+    "nypd": 49
+  },
+  "10018": {
+    "neighborhood": "Garment District",
+    "air": 57,
+    "water": 73,
+    "edu": 80,
+    "nypd": 41
+  },
+  "10019": {
+    "neighborhood": "Hell's Kitchen",
+    "air": 67,
+    "water": 82,
+    "edu": 86,
+    "nypd": 57
+  },
+  "10020": {
+    "neighborhood": "Rockefeller Center",
+    "air": 69,
+    "water": 83,
+    "edu": 88,
+    "nypd": 60
+  },
+  "10021": {
+    "neighborhood": "Upper East Side",
+    "air": 78,
+    "water": 89,
+    "edu": 93,
+    "nypd": 72
+  },
+  "10022": {
+    "neighborhood": "Midtown East",
+    "air": 75,
+    "water": 87,
+    "edu": 92,
+    "nypd": 69
+  },
+  "10023": {
+    "neighborhood": "Upper West Side",
+    "air": 73,
+    "water": 86,
+    "edu": 91,
+    "nypd": 66
+  },
+  "10024": {
+    "neighborhood": "Upper West Side",
+    "air": 76,
+    "water": 88,
+    "edu": 92,
+    "nypd": 70
+  },
+  "10025": {
+    "neighborhood": "Upper West Side",
+    "air": 74,
+    "water": 87,
+    "edu": 90,
+    "nypd": 67
+  },
+  "10026": {
+    "neighborhood": "Central Harlem",
+    "air": 52,
+    "water": 68,
+    "edu": 70,
+    "nypd": 31
+  },
+  "10027": {
+    "neighborhood": "Manhattanville",
+    "air": 50,
+    "water": 66,
+    "edu": 67,
+    "nypd": 28
+  },
+  "10028": {
+    "neighborhood": "Yorkville",
+    "air": 77,
+    "water": 89,
+    "edu": 92,
+    "nypd": 71
+  },
+  "10029": {
+    "neighborhood": "East Harlem",
+    "air": 51,
+    "water": 67,
+    "edu": 68,
+    "nypd": 30
+  },
+  "10030": {
+    "neighborhood": "Central Harlem",
+    "air": 48,
+    "water": 64,
+    "edu": 62,
+    "nypd": 25
+  },
+  "10031": {
+    "neighborhood": "Hamilton Heights",
+    "air": 46,
+    "water": 62,
+    "edu": 60,
+    "nypd": 22
+  },
+  "10032": {
+    "neighborhood": "Washington Heights",
+    "air": 44,
+    "water": 60,
+    "edu": 58,
+    "nypd": 20
+  },
+  "10033": {
+    "neighborhood": "Washington Heights",
+    "air": 43,
+    "water": 59,
+    "edu": 56,
+    "nypd": 19
+  },
+  "10034": {
+    "neighborhood": "Inwood",
+    "air": 45,
+    "water": 61,
+    "edu": 59,
+    "nypd": 21
+  },
+  "10035": {
+    "neighborhood": "East Harlem",
+    "air": 49,
+    "water": 65,
+    "edu": 64,
+    "nypd": 26
+  },
+  "10036": {
+    "neighborhood": "Hell's Kitchen",
+    "air": 60,
+    "water": 76,
+    "edu": 81,
+    "nypd": 46
+  },
+  "10037": {
+    "neighborhood": "Central Harlem",
+    "air": 47,
+    "water": 63,
+    "edu": 61,
+    "nypd": 24
+  },
+  "10038": {
+    "neighborhood": "Financial District",
+    "air": 68,
+    "water": 82,
+    "edu": 84,
+    "nypd": 57
+  },
+  "10039": {
+    "neighborhood": "Central Harlem",
+    "air": 42,
+    "water": 58,
+    "edu": 55,
+    "nypd": 18
+  },
+  "10040": {
+    "neighborhood": "Washington Heights",
+    "air": 41,
+    "water": 57,
+    "edu": 54,
+    "nypd": 17
+  },
+  "10044": {
+    "neighborhood": "Roosevelt Island",
+    "air": 82,
+    "water": 91,
+    "edu": 94,
+    "nypd": 76
+  },
+  "10065": {
+    "neighborhood": "Upper East Side",
+    "air": 80,
+    "water": 90,
+    "edu": 93,
+    "nypd": 73
+  },
+  "10075": {
+    "neighborhood": "Upper East Side",
+    "air": 79,
+    "water": 90,
+    "edu": 93,
+    "nypd": 72
+  },
+  "10128": {
+    "neighborhood": "Yorkville",
+    "air": 78,
+    "water": 89,
+    "edu": 92,
+    "nypd": 71
+  },
+  "10301": {
+    "neighborhood": "Silver Lake",
+    "air": 72,
+    "water": 85,
+    "edu": 77,
+    "nypd": 58
+  },
+  "10302": {
+    "neighborhood": "Port Richmond",
+    "air": 65,
+    "water": 79,
+    "edu": 70,
+    "nypd": 48
+  },
+  "10303": {
+    "neighborhood": "Mariners Harbor",
+    "air": 60,
+    "water": 75,
+    "edu": 66,
+    "nypd": 43
+  },
+  "10304": {
+    "neighborhood": "Stapleton",
+    "air": 68,
+    "water": 82,
+    "edu": 74,
+    "nypd": 54
+  },
+  "10305": {
+    "neighborhood": "Arrochar",
+    "air": 74,
+    "water": 86,
+    "edu": 79,
+    "nypd": 61
+  },
+  "10306": {
+    "neighborhood": "New Dorp",
+    "air": 76,
+    "water": 87,
+    "edu": 81,
+    "nypd": 64
+  },
+  "10307": {
+    "neighborhood": "Tottenville",
+    "air": 78,
+    "water": 88,
+    "edu": 83,
+    "nypd": 67
+  },
+  "10308": {
+    "neighborhood": "Great Kills",
+    "air": 77,
+    "water": 88,
+    "edu": 82,
+    "nypd": 66
+  },
+  "10309": {
+    "neighborhood": "Prince's Bay",
+    "air": 79,
+    "water": 89,
+    "edu": 84,
+    "nypd": 68
+  },
+  "10310": {
+    "neighborhood": "West Brighton",
+    "air": 70,
+    "water": 83,
+    "edu": 76,
+    "nypd": 56
+  },
+  "10312": {
+    "neighborhood": "Eltingville",
+    "air": 80,
+    "water": 90,
+    "edu": 85,
+    "nypd": 70
+  },
+  "10314": {
+    "neighborhood": "Castleton Corners",
+    "air": 75,
+    "water": 86,
+    "edu": 80,
+    "nypd": 62
+  },
+  "10451": {
+    "neighborhood": "Concourse",
+    "air": 38,
+    "water": 55,
+    "edu": 48,
+    "nypd": 14
+  },
+  "10452": {
+    "neighborhood": "Highbridge",
+    "air": 36,
+    "water": 53,
+    "edu": 46,
+    "nypd": 12
+  },
+  "10453": {
+    "neighborhood": "Morris Heights",
+    "air": 37,
+    "water": 54,
+    "edu": 47,
+    "nypd": 13
+  },
+  "10454": {
+    "neighborhood": "Mott Haven",
+    "air": 35,
+    "water": 52,
+    "edu": 44,
+    "nypd": 11
+  },
+  "10455": {
+    "neighborhood": "Mott Haven",
+    "air": 34,
+    "water": 51,
+    "edu": 43,
+    "nypd": 10
+  },
+  "10456": {
+    "neighborhood": "Morrisania",
+    "air": 33,
+    "water": 50,
+    "edu": 42,
+    "nypd": 10
+  },
+  "10457": {
+    "neighborhood": "Tremont",
+    "air": 39,
+    "water": 56,
+    "edu": 49,
+    "nypd": 15
+  },
+  "10458": {
+    "neighborhood": "Belmont",
+    "air": 50,
+    "water": 67,
+    "edu": 60,
+    "nypd": 28
+  },
+  "10459": {
+    "neighborhood": "Longwood",
+    "air": 32,
+    "water": 49,
+    "edu": 41,
+    "nypd": 9
+  },
+  "10460": {
+    "neighborhood": "West Farms",
+    "air": 40,
+    "water": 57,
+    "edu": 50,
+    "nypd": 16
+  },
+  "10461": {
+    "neighborhood": "Pelham Bay",
+    "air": 58,
+    "water": 74,
+    "edu": 68,
+    "nypd": 40
+  },
+  "10462": {
+    "neighborhood": "Parkchester",
+    "air": 54,
+    "water": 70,
+    "edu": 63,
+    "nypd": 35
+  },
+  "10463": {
+    "neighborhood": "Kingsbridge",
+    "air": 62,
+    "water": 77,
+    "edu": 72,
+    "nypd": 46
+  },
+  "10464": {
+    "neighborhood": "City Island",
+    "air": 74,
+    "water": 86,
+    "edu": 80,
+    "nypd": 62
+  },
+  "10465": {
+    "neighborhood": "Throggs Neck",
+    "air": 70,
+    "water": 83,
+    "edu": 77,
+    "nypd": 57
+  },
+  "10466": {
+    "neighborhood": "Wakefield",
+    "air": 55,
+    "water": 71,
+    "edu": 65,
+    "nypd": 37
+  },
+  "10467": {
+    "neighborhood": "Williamsbridge",
+    "air": 52,
+    "water": 68,
+    "edu": 62,
+    "nypd": 33
+  },
+  "10468": {
+    "neighborhood": "University Heights",
+    "air": 48,
+    "water": 64,
+    "edu": 57,
+    "nypd": 26
+  },
+  "10469": {
+    "neighborhood": "Allerton",
+    "air": 57,
+    "water": 73,
+    "edu": 67,
+    "nypd": 39
+  },
+  "10470": {
+    "neighborhood": "Woodlawn",
+    "air": 66,
+    "water": 80,
+    "edu": 74,
+    "nypd": 52
+  },
+  "10471": {
+    "neighborhood": "Riverdale",
+    "air": 72,
+    "water": 85,
+    "edu": 79,
+    "nypd": 60
+  },
+  "10472": {
+    "neighborhood": "Soundview",
+    "air": 44,
+    "water": 61,
+    "edu": 53,
+    "nypd": 20
+  },
+  "10473": {
+    "neighborhood": "Castle Hill",
+    "air": 42,
+    "water": 59,
+    "edu": 51,
+    "nypd": 18
+  },
+  "10474": {
+    "neighborhood": "Hunts Point",
+    "air": 30,
+    "water": 47,
+    "edu": 38,
+    "nypd": 8
+  },
+  "10475": {
+    "neighborhood": "Co-op City",
+    "air": 60,
+    "water": 76,
+    "edu": 70,
+    "nypd": 44
+  },
+  "11201": {
+    "neighborhood": "Brooklyn Heights",
+    "air": 68,
+    "water": 82,
+    "edu": 85,
+    "nypd": 57
+  },
+  "11203": {
+    "neighborhood": "East Flatbush",
+    "air": 48,
+    "water": 64,
+    "edu": 58,
+    "nypd": 26
+  },
+  "11204": {
+    "neighborhood": "Bensonhurst",
+    "air": 62,
+    "water": 78,
+    "edu": 72,
+    "nypd": 46
+  },
+  "11205": {
+    "neighborhood": "Fort Greene",
+    "air": 58,
+    "water": 74,
+    "edu": 70,
+    "nypd": 41
+  },
+  "11206": {
+    "neighborhood": "Williamsburg",
+    "air": 44,
+    "water": 60,
+    "edu": 55,
+    "nypd": 21
+  },
+  "11207": {
+    "neighborhood": "East New York",
+    "air": 40,
+    "water": 57,
+    "edu": 50,
+    "nypd": 16
+  },
+  "11208": {
+    "neighborhood": "Cypress Hills",
+    "air": 38,
+    "water": 55,
+    "edu": 47,
+    "nypd": 13
+  },
+  "11209": {
+    "neighborhood": "Bay Ridge",
+    "air": 70,
+    "water": 83,
+    "edu": 78,
+    "nypd": 57
+  },
+  "11210": {
+    "neighborhood": "Flatlands",
+    "air": 60,
+    "water": 76,
+    "edu": 70,
+    "nypd": 43
+  },
+  "11211": {
+    "neighborhood": "Williamsburg",
+    "air": 65,
+    "water": 80,
+    "edu": 80,
+    "nypd": 52
+  },
+  "11212": {
+    "neighborhood": "Brownsville",
+    "air": 36,
+    "water": 53,
+    "edu": 44,
+    "nypd": 11
+  },
+  "11213": {
+    "neighborhood": "Crown Heights",
+    "air": 46,
+    "water": 62,
+    "edu": 57,
+    "nypd": 23
+  },
+  "11214": {
+    "neighborhood": "Bensonhurst",
+    "air": 66,
+    "water": 80,
+    "edu": 73,
+    "nypd": 52
+  },
+  "11215": {
+    "neighborhood": "Park Slope",
+    "air": 72,
+    "water": 85,
+    "edu": 84,
+    "nypd": 61
+  },
+  "11216": {
+    "neighborhood": "Bedford-Stuyvesant",
+    "air": 52,
+    "water": 68,
+    "edu": 67,
+    "nypd": 32
+  },
+  "11217": {
+    "neighborhood": "Boerum Hill",
+    "air": 69,
+    "water": 83,
+    "edu": 83,
+    "nypd": 58
+  },
+  "11218": {
+    "neighborhood": "Kensington",
+    "air": 63,
+    "water": 78,
+    "edu": 74,
+    "nypd": 48
+  },
+  "11219": {
+    "neighborhood": "Borough Park",
+    "air": 59,
+    "water": 75,
+    "edu": 69,
+    "nypd": 42
+  },
+  "11220": {
+    "neighborhood": "Sunset Park",
+    "air": 54,
+    "water": 71,
+    "edu": 64,
+    "nypd": 35
+  },
+  "11221": {
+    "neighborhood": "Bushwick",
+    "air": 42,
+    "water": 59,
+    "edu": 53,
+    "nypd": 18
+  },
+  "11222": {
+    "neighborhood": "Greenpoint",
+    "air": 67,
+    "water": 81,
+    "edu": 79,
+    "nypd": 55
+  },
+  "11223": {
+    "neighborhood": "Gravesend",
+    "air": 64,
+    "water": 79,
+    "edu": 73,
+    "nypd": 49
+  },
+  "11224": {
+    "neighborhood": "Coney Island",
+    "air": 70,
+    "water": 84,
+    "edu": 76,
+    "nypd": 58
+  },
+  "11225": {
+    "neighborhood": "Crown Heights",
+    "air": 55,
+    "water": 71,
+    "edu": 66,
+    "nypd": 36
+  },
+  "11226": {
+    "neighborhood": "Flatbush",
+    "air": 50,
+    "water": 67,
+    "edu": 62,
+    "nypd": 29
+  },
+  "11228": {
+    "neighborhood": "Dyker Heights",
+    "air": 68,
+    "water": 82,
+    "edu": 76,
+    "nypd": 55
+  },
+  "11229": {
+    "neighborhood": "Gerritsen Beach",
+    "air": 67,
+    "water": 81,
+    "edu": 74,
+    "nypd": 53
+  },
+  "11230": {
+    "neighborhood": "Midwood",
+    "air": 65,
+    "water": 80,
+    "edu": 73,
+    "nypd": 51
+  },
+  "11231": {
+    "neighborhood": "Red Hook",
+    "air": 70,
+    "water": 84,
+    "edu": 82,
+    "nypd": 59
+  },
+  "11232": {
+    "neighborhood": "Sunset Park",
+    "air": 56,
+    "water": 72,
+    "edu": 66,
+    "nypd": 38
+  },
+  "11233": {
+    "neighborhood": "Stuyvesant Heights",
+    "air": 44,
+    "water": 61,
+    "edu": 54,
+    "nypd": 20
+  },
+  "11234": {
+    "neighborhood": "Mill Basin",
+    "air": 66,
+    "water": 80,
+    "edu": 74,
+    "nypd": 52
+  },
+  "11235": {
+    "neighborhood": "Sheepshead Bay",
+    "air": 72,
+    "water": 86,
+    "edu": 77,
+    "nypd": 61
+  },
+  "11236": {
+    "neighborhood": "Canarsie",
+    "air": 55,
+    "water": 71,
+    "edu": 65,
+    "nypd": 36
+  },
+  "11237": {
+    "neighborhood": "Bushwick",
+    "air": 48,
+    "water": 64,
+    "edu": 59,
+    "nypd": 26
+  },
+  "11238": {
+    "neighborhood": "Prospect Heights",
+    "air": 66,
+    "water": 81,
+    "edu": 80,
+    "nypd": 53
+  },
+  "11239": {
+    "neighborhood": "East New York",
+    "air": 34,
+    "water": 51,
+    "edu": 42,
+    "nypd": 10
+  },
+  "11354": {
+    "neighborhood": "Flushing",
+    "air": 60,
+    "water": 76,
+    "edu": 72,
+    "nypd": 43
+  },
+  "11355": {
+    "neighborhood": "Flushing",
+    "air": 57,
+    "water": 73,
+    "edu": 69,
+    "nypd": 39
+  },
+  "11356": {
+    "neighborhood": "College Point",
+    "air": 64,
+    "water": 79,
+    "edu": 74,
+    "nypd": 49
+  },
+  "11357": {
+    "neighborhood": "Whitestone",
+    "air": 68,
+    "water": 83,
+    "edu": 77,
+    "nypd": 55
+  },
+  "11358": {
+    "neighborhood": "Auburndale",
+    "air": 66,
+    "water": 81,
+    "edu": 76,
+    "nypd": 52
+  },
+  "11360": {
+    "neighborhood": "Bayside",
+    "air": 72,
+    "water": 85,
+    "edu": 80,
+    "nypd": 60
+  },
+  "11361": {
+    "neighborhood": "Bayside",
+    "air": 70,
+    "water": 84,
+    "edu": 79,
+    "nypd": 58
+  },
+  "11362": {
+    "neighborhood": "Little Neck",
+    "air": 74,
+    "water": 86,
+    "edu": 82,
+    "nypd": 63
+  },
+  "11363": {
+    "neighborhood": "Little Neck",
+    "air": 76,
+    "water": 87,
+    "edu": 83,
+    "nypd": 65
+  },
+  "11364": {
+    "neighborhood": "Oakland Gardens",
+    "air": 71,
+    "water": 85,
+    "edu": 80,
+    "nypd": 59
+  },
+  "11365": {
+    "neighborhood": "Fresh Meadows",
+    "air": 67,
+    "water": 81,
+    "edu": 76,
+    "nypd": 53
+  },
+  "11366": {
+    "neighborhood": "Fresh Meadows",
+    "air": 65,
+    "water": 80,
+    "edu": 74,
+    "nypd": 51
+  },
+  "11367": {
+    "neighborhood": "Kew Gardens Hills",
+    "air": 69,
+    "water": 83,
+    "edu": 78,
+    "nypd": 56
+  },
+  "11368": {
+    "neighborhood": "Corona",
+    "air": 46,
+    "water": 63,
+    "edu": 57,
+    "nypd": 23
+  },
+  "11369": {
+    "neighborhood": "East Elmhurst",
+    "air": 42,
+    "water": 59,
+    "edu": 52,
+    "nypd": 18
+  },
+  "11370": {
+    "neighborhood": "Jackson Heights",
+    "air": 50,
+    "water": 66,
+    "edu": 60,
+    "nypd": 28
+  },
+  "11371": {
+    "neighborhood": "LaGuardia Airport",
+    "air": 44,
+    "water": 61,
+    "edu": 54,
+    "nypd": 20
+  },
+  "11372": {
+    "neighborhood": "Jackson Heights",
+    "air": 52,
+    "water": 68,
+    "edu": 63,
+    "nypd": 33
+  },
+  "11373": {
+    "neighborhood": "Elmhurst",
+    "air": 54,
+    "water": 70,
+    "edu": 65,
+    "nypd": 35
+  },
+  "11374": {
+    "neighborhood": "Rego Park",
+    "air": 63,
+    "water": 78,
+    "edu": 73,
+    "nypd": 48
+  },
+  "11375": {
+    "neighborhood": "Forest Hills",
+    "air": 67,
+    "water": 82,
+    "edu": 77,
+    "nypd": 54
+  },
+  "11377": {
+    "neighborhood": "Woodside",
+    "air": 58,
+    "water": 74,
+    "edu": 69,
+    "nypd": 40
+  },
+  "11378": {
+    "neighborhood": "Maspeth",
+    "air": 55,
+    "water": 71,
+    "edu": 65,
+    "nypd": 36
+  },
+  "11379": {
+    "neighborhood": "Middle Village",
+    "air": 61,
+    "water": 77,
+    "edu": 71,
+    "nypd": 44
+  },
+  "11385": {
+    "neighborhood": "Ridgewood",
+    "air": 59,
+    "water": 75,
+    "edu": 70,
+    "nypd": 42
+  },
+  "11411": {
+    "neighborhood": "Cambria Heights",
+    "air": 65,
+    "water": 80,
+    "edu": 74,
+    "nypd": 50
+  },
+  "11412": {
+    "neighborhood": "St. Albans",
+    "air": 58,
+    "water": 74,
+    "edu": 68,
+    "nypd": 40
+  },
+  "11413": {
+    "neighborhood": "Laurelton",
+    "air": 60,
+    "water": 76,
+    "edu": 70,
+    "nypd": 43
+  },
+  "11414": {
+    "neighborhood": "Howard Beach",
+    "air": 63,
+    "water": 78,
+    "edu": 72,
+    "nypd": 47
+  },
+  "11415": {
+    "neighborhood": "Kew Gardens",
+    "air": 64,
+    "water": 79,
+    "edu": 73,
+    "nypd": 49
+  },
+  "11416": {
+    "neighborhood": "Ozone Park",
+    "air": 56,
+    "water": 72,
+    "edu": 66,
+    "nypd": 37
+  },
+  "11417": {
+    "neighborhood": "Ozone Park",
+    "air": 57,
+    "water": 73,
+    "edu": 67,
+    "nypd": 38
+  },
+  "11418": {
+    "neighborhood": "Richmond Hill",
+    "air": 59,
+    "water": 75,
+    "edu": 69,
+    "nypd": 41
+  },
+  "11419": {
+    "neighborhood": "South Richmond Hill",
+    "air": 53,
+    "water": 69,
+    "edu": 63,
+    "nypd": 33
+  },
+  "11420": {
+    "neighborhood": "South Ozone Park",
+    "air": 51,
+    "water": 67,
+    "edu": 61,
+    "nypd": 30
+  },
+  "11421": {
+    "neighborhood": "Woodhaven",
+    "air": 54,
+    "water": 70,
+    "edu": 64,
+    "nypd": 35
+  },
+  "11422": {
+    "neighborhood": "Rosedale",
+    "air": 62,
+    "water": 78,
+    "edu": 72,
+    "nypd": 46
+  },
+  "11423": {
+    "neighborhood": "Hollis",
+    "air": 66,
+    "water": 81,
+    "edu": 75,
+    "nypd": 52
+  },
+  "11424": {
+    "neighborhood": "Queens Village",
+    "air": 68,
+    "water": 82,
+    "edu": 77,
+    "nypd": 55
+  },
+  "11425": {
+    "neighborhood": "St. Albans",
+    "air": 64,
+    "water": 80,
+    "edu": 74,
+    "nypd": 50
+  },
+  "11426": {
+    "neighborhood": "Bellerose",
+    "air": 70,
+    "water": 84,
+    "edu": 78,
+    "nypd": 58
+  },
+  "11427": {
+    "neighborhood": "Queens Village",
+    "air": 67,
+    "water": 82,
+    "edu": 76,
+    "nypd": 53
+  },
+  "11428": {
+    "neighborhood": "Queens Village",
+    "air": 63,
+    "water": 79,
+    "edu": 72,
+    "nypd": 47
+  },
+  "11429": {
+    "neighborhood": "Queens Village",
+    "air": 60,
+    "water": 76,
+    "edu": 70,
+    "nypd": 43
+  },
+  "11432": {
+    "neighborhood": "Jamaica",
+    "air": 52,
+    "water": 68,
+    "edu": 62,
+    "nypd": 32
+  },
+  "11433": {
+    "neighborhood": "Jamaica",
+    "air": 48,
+    "water": 64,
+    "edu": 57,
+    "nypd": 26
+  },
+  "11434": {
+    "neighborhood": "Jamaica",
+    "air": 55,
+    "water": 71,
+    "edu": 65,
+    "nypd": 36
+  },
+  "11435": {
+    "neighborhood": "Jamaica",
+    "air": 50,
+    "water": 66,
+    "edu": 60,
+    "nypd": 29
+  },
+  "11436": {
+    "neighborhood": "Jamaica",
+    "air": 46,
+    "water": 62,
+    "edu": 55,
+    "nypd": 23
+  },
+  "11691": {
+    "neighborhood": "Far Rockaway",
+    "air": 62,
+    "water": 78,
+    "edu": 68,
+    "nypd": 44
+  },
+  "11692": {
+    "neighborhood": "Arverne",
+    "air": 60,
+    "water": 76,
+    "edu": 66,
+    "nypd": 42
+  },
+  "11693": {
+    "neighborhood": "Rockaway Beach",
+    "air": 58,
+    "water": 74,
+    "edu": 64,
+    "nypd": 40
+  },
+  "11694": {
+    "neighborhood": "Rockaway Park",
+    "air": 64,
+    "water": 79,
+    "edu": 70,
+    "nypd": 48
+  },
+  "11697": {
+    "neighborhood": "Breezy Point",
+    "air": 66,
+    "water": 81,
+    "edu": 72,
+    "nypd": 51
+  }
+}
