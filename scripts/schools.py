@@ -121,7 +121,7 @@ column_order = ['BN', 'location_name', 'Final_Weighted_Grade', 'Average_Complete
                 'X_COORDINATE', 'Y_COORDINATE', 'Location_Category_Description']
 final_results = final_results[column_order]
 
-os.makedirs("../output", exist_ok=True)
-output_file = os.path.join("../output", "school_grades_final.csv")
+os.makedirs("../outputs", exist_ok=True)
+output_file = os.path.join("../outputs", "school_grades_final.csv")
 final_results.to_csv(output_file, index=False)
 print(f"\nResults exported to '{output_file}'")
