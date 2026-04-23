@@ -3,91 +3,132 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>NYC Neighborhood Quality Index</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;700&family=DM+Sans:wght@300;400;500&display=swap"
+    <title>NYC Quality Index - Discover Your Perfect Neighborhood</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;700&family=DM+Sans:wght@300;400;500;700&display=swap"
           rel="stylesheet"/>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div id="map"></div>
-
-<div class="panel">
-    <div class="panel-header">
-        <div class="panel-title">NYC Quality Index</div>
-        <div class="panel-sub">by zip code</div>
+<nav class="nav">
+    <div class="nav-container">
+        <div class="logo">NYC Quality Index</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="map.html">Explore Map</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
     </div>
-    <div class="metric-list">
-        <button class="metric-btn active" data-metric="overall" style="--accent-color: var(--overall)">
-            <div class="metric-dot" style="background: var(--overall)"></div>
-            <span class="metric-label">Overall Score</span>
-            <span class="metric-key">ALL</span>
-        </button>
-        <button class="metric-btn" data-metric="air" style="--accent-color: var(--air)">
-            <div class="metric-dot" style="background: var(--air)"></div>
-            <span class="metric-label">Air Quality</span>
-            <span class="metric-key">AQI</span>
-        </button>
-        <button class="metric-btn" data-metric="water" style="--accent-color: var(--water)">
-            <div class="metric-dot" style="background: var(--water)"></div>
-            <span class="metric-label">Drinking Water</span>
-            <span class="metric-key">H₂O</span>
-        </button>
-        <button class="metric-btn" data-metric="edu" style="--accent-color: var(--edu)">
-            <div class="metric-dot" style="background: var(--edu)"></div>
-            <span class="metric-label">Education</span>
-            <span class="metric-key">EDU</span>
-        </button>
-        <button class="metric-btn" data-metric="nypd" style="--accent-color: var(--nypd)">
-            <div class="metric-dot" style="background: var(--nypd)"></div>
-            <span class="metric-label">NYPD Complaints</span>
-            <span class="metric-key">CPT</span>
-        </button>
+</nav>
+
+<section class="hero">
+    <h1 class="hero-title">
+        <span style="background: var(--air); background-clip: text;">Find</span>
+        <span style="background: var(--water); background-clip: text;">Your</span>
+        <span style="background: var(--edu); background-clip: text;">Perfect</span>
+        <span style="background: var(--nypd); background-clip: text;">NYC</span>
+        <span style="background: var(--overall); background-clip: text;">Neighborhood</span></h1>
+    <p class="hero-subtitle">
+        Explore comprehensive quality scores for every NYC zip code.
+        Compare air quality, water safety, education, and public safety
+        to make informed decisions about where to live.
+    </p>
+    <a href="map.html" class="cta-button">Explore the Map</a>
+</section>
+
+<div class="metrics-grid">
+    <div class="metric-card" style="--accent: var(--air)">
+        <div class="metric-icon" style="background: var(--air)"></div>
+        <h3 style="color: var(--air)">Air Quality</h3>
+        <p>Real-time air quality index tracking pollution levels across all neighborhoods</p>
+    </div>
+    <div class="metric-card" style="--accent: var(--water)">
+        <div class="metric-icon" style="background: var(--water)"></div>
+        <h3 style="color: var(--water)">Drinking Water</h3>
+        <p>Water safety ratings based on contamination tests and infrastructure quality</p>
+    </div>
+    <div class="metric-card" style="--accent: var(--edu)">
+        <div class="metric-icon" style="background: var(--edu)"></div>
+        <h3 style="color: var(--edu)">Education</h3>
+        <p>School performance metrics, graduation rates, and educational resources</p>
+    </div>
+    <div class="metric-card" style="--accent: var(--nypd)">
+        <div class="metric-icon" style="background: var(--nypd)"></div>
+        <h3 style="color: var(--nypd)">NYPD Complaints</h3>
+        <p>Public safety scores based on complaint frequency and resolution rates</p>
     </div>
 </div>
 
-<div class="tooltip-panel" id="tooltipPanel">
-    <div class="tooltip-zip" id="ttZip">—</div>
-    <div class="tooltip-borough" id="ttBorough">hover a zip code</div>
-    <div class="score-card" style="border-left-color: var(--overall); margin-bottom: 8px;">
-        <div class="score-name">Overall</div>
-        <div class="score-value" id="ttOverall" style="color: var(--overall)">—</div>
-        <div class="score-bar-wrap">
-            <div class="score-bar-fill" id="barOverall" style="background: var(--overall); width: 0%"></div>
+<section class="features">
+    <h2 class="section-title">Powerful Features</h2>
+    <div class="features-grid">
+        <div class="feature">
+            <h3>Interactive Map</h3>
+            <p>
+                Visualize quality scores with color-coded zip codes.
+                Hover for instant details, click to pin neighborhoods for deeper analysis.
+            </p>
+        </div>
+        <div class="feature">
+            <h3>Compare Neighborhoods</h3>
+            <p>
+                Select up to two neighborhoods to compare side-by-side.
+                See which area excels in the metrics that matter most to you.
+            </p>
+        </div>
+        <div class="feature">
+            <h3>Real Estate Integration</h3>
+            <p>
+                Browse available rental properties directly from the map.
+                Find your next home in neighborhoods that match your quality standards.
+            </p>
+        </div>
+        <div class="feature">
+            <h3>Detailed Profiles</h3>
+            <p>
+                Access comprehensive neighborhood profiles with historical trends,
+                demographics, and local insights.
+            </p>
+        </div>
+        <div class="feature">
+            <h3>Multiple Metrics</h3>
+            <p>
+                Switch between air quality, water safety, education, and public safety
+                views with a single click.
+            </p>
+        </div>
+        <div class="feature">
+            <h3>Data-Driven</h3>
+            <p>
+                All scores based on official NYC data sources, updated regularly
+                to reflect current conditions.
+            </p>
         </div>
     </div>
-    <div class="score-grid">
-        <div class="score-card" style="border-left-color: var(--air)">
-            <div class="score-name">Air Quality</div>
-            <div class="score-value" id="ttAir" style="color: var(--air)">—</div>
-            <div class="score-bar-wrap">
-                <div class="score-bar-fill" id="barAir" style="background: var(--air); width: 0%"></div>
-            </div>
+</section>
+
+<div class="stats">
+    <div class="stats-grid">
+        <div>
+            <div class="stat-number">180+</div>
+            <div class="stat-label">Zip Codes Tracked</div>
         </div>
-        <div class="score-card" style="border-left-color: var(--water)">
-            <div class="score-name">Drinking Water</div>
-            <div class="score-value" id="ttWater" style="color: var(--water)">—</div>
-            <div class="score-bar-wrap">
-                <div class="score-bar-fill" id="barWater" style="background: var(--water); width: 0%"></div>
-            </div>
+        <div>
+            <div class="stat-number">4</div>
+            <div class="stat-label">Quality Metrics</div>
         </div>
-        <div class="score-card" style="border-left-color: var(--edu)">
-            <div class="score-name">Education</div>
-            <div class="score-value" id="ttEdu" style="color: var(--edu)">—</div>
-            <div class="score-bar-wrap">
-                <div class="score-bar-fill" id="barEdu" style="background: var(--edu); width: 0%"></div>
-            </div>
+        <div>
+            <div class="stat-number">5</div>
+            <div class="stat-label">NYC Boroughs</div>
         </div>
-        <div class="score-card" style="border-left-color: var(--nypd)">
-            <div class="score-name">NYPD Complaints</div>
-            <div class="score-value" id="ttNypd" style="color: var(--nypd)">—</div>
-            <div class="score-bar-wrap">
-                <div class="score-bar-fill" id="barNypd" style="background: var(--nypd); width: 0%"></div>
-            </div>
+        <div>
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Data Transparency</div>
         </div>
     </div>
 </div>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="script.js"></script>
+
+<footer>
+    <p>&copy; 2026 NYC Quality Index. Data sourced from NYC Open Data.</p>
+</footer>
 </body>
 </html>

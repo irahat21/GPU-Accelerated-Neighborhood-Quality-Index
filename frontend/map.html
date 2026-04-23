@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>NYC Neighborhood Quality Index</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;700&family=DM+Sans:wght@300;400;500&display=swap"
+          rel="stylesheet"/>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<div id="map"></div>
+
+<div class="panel">
+    <div class="panel-header">
+        <div class="panel-title">NYC Quality Index</div>
+        <div class="panel-sub">by zip code</div>
+    </div>
+    <div class="metric-list">
+        <button class="metric-btn active" data-metric="overall" style="--accent-color: #9b64ff">
+            <div class="metric-dot" style="background: #9b64ff"></div>
+            <span class="metric-label">Overall Score</span>
+            <span class="metric-key">ALL</span>
+        </button>
+        <button class="metric-btn" data-metric="air" style="--accent-color: #00c896">
+            <div class="metric-dot" style="background: #00c896"></div>
+            <span class="metric-label">Air Quality</span>
+            <span class="metric-key">AQI</span>
+        </button>
+        <button class="metric-btn" data-metric="water" style="--accent-color: #3b9eff">
+            <div class="metric-dot" style="background: #3b9eff"></div>
+            <span class="metric-label">Drinking Water</span>
+            <span class="metric-key">H₂O</span>
+        </button>
+        <button class="metric-btn" data-metric="edu" style="--accent-color: #f5a623">
+            <div class="metric-dot" style="background: #f5a623"></div>
+            <span class="metric-label">Education</span>
+            <span class="metric-key">EDU</span>
+        </button>
+        <button class="metric-btn" data-metric="nypd" style="--accent-color: #ff5e7a">
+            <div class="metric-dot" style="background: #ff5e7a"></div>
+            <span class="metric-label">NYPD Complaints</span>
+            <span class="metric-key">CPT</span>
+        </button>
+    </div>
+</div>
+
+<div class="nav-bar">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="about.html" class="nav-link">About</a>
+</div>
+
+<button class="compare-btn" id="compareBtn">Compare</button>
+<div class="compare-instruction" id="compareInstruction">
+    Click two zip codes on the map to compare
+</div>
+
+<!-- Unified Tooltip Panel -->
+<div class="tooltip-panel" id="tooltipPanel">
+    <button class="close-compare-btn" id="closeCompareTooltip" style="display: none;">×</button>
+    <div id="tooltipContent"></div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

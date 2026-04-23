@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>About - NYC Quality Index</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;700&family=DM+Sans:wght@300;400;500;700&display=swap"
+          rel="stylesheet"/>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="nav">
+    <div class="nav-container">
+        <div class="logo">NYC Quality Index</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="map.html">Explore Map</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <h1>About NYC Quality Index</h1>
+
+    <p class="intro">
+        The NYC Quality Index is a comprehensive tool designed to help New Yorkers
+        make informed decisions about where to live, work, and invest. By aggregating
+        and visualizing key quality-of-life metrics across all NYC zip codes, we provide
+        transparent, data-driven insights into neighborhood livability.
+    </p>
+
+    <h2>Our Mission</h2>
+    <p>
+        We believe everyone deserves access to clear, accurate information about their
+        neighborhood's quality. Our platform democratizes data that was previously scattered
+        across multiple city agencies, making it easy to understand and compare neighborhoods
+        at a glance.
+    </p>
+
+    <h2>Methodology</h2>
+    <p>
+        Our quality scores are calculated using a transparent, data-driven approach.
+        Each metric is scored on a scale of 0-100, with higher scores indicating better conditions.
+    </p>
+
+    <div class="metric-box" style="--accent: var(--air)">
+        <h3 style="color: var(--air)">Air Quality Index (AQI)</h3>
+        <p>
+            Based on EPA air quality monitoring data, measuring particulate matter (PM2.5, PM10),
+            ozone levels, and other pollutants. Scores are normalized to a 0-100 scale where:
+        </p>
+        <ul>
+            <li>90-100: Excellent - Minimal health concerns</li>
+            <li>70-89: Good - Acceptable air quality</li>
+            <li>50-69: Moderate - Sensitive groups may be affected</li>
+            <li>30-49: Poor - Health concerns for general population</li>
+            <li>0-29: Very Poor - Serious health risks</li>
+        </ul>
+    </div>
+
+    <div class="metric-box" style="--accent: var(--water)">
+        <h3 style="color: var(--water)">Drinking Water Safety</h3>
+        <p>
+            Combines NYC DEP water quality reports, lead testing results, and infrastructure
+            age. Factors include:
+        </p>
+        <ul>
+            <li>Bacterial contamination levels</li>
+            <li>Lead and heavy metal concentrations</li>
+            <li>Chlorine and disinfection byproducts</li>
+            <li>Water main age and replacement rates</li>
+            <li>Complaint frequency and resolution</li>
+        </ul>
+    </div>
+
+    <div class="metric-box" style="--accent: var(--edu)">
+        <h3 style="color: var(--edu)">Education Quality</h3>
+        <p>
+            Aggregates NYC Department of Education data including:
+        </p>
+        <ul>
+            <li>Average standardized test scores (Math & ELA)</li>
+            <li>High school graduation rates</li>
+            <li>College readiness indicators</li>
+            <li>Student-teacher ratios</li>
+            <li>School funding per student</li>
+            <li>Advanced course availability</li>
+        </ul>
+    </div>
+
+    <div class="metric-box" style="--accent: var(--nypd)">
+        <h3 style="color: var(--nypd)">NYPD Complaint Index</h3>
+        <p>
+            Derived from NYPD complaint data, measuring public safety through:
+        </p>
+        <ul>
+            <li>Total complaint volume per 1,000 residents</li>
+            <li>Complaint type severity weighting</li>
+            <li>Response time averages</li>
+            <li>Resolution rates</li>
+            <li>Year-over-year trend analysis</li>
+        </ul>
+        <p>
+            <em>Note: Higher scores indicate fewer complaints and better public safety conditions.</em>
+        </p>
+    </div>
+
+    <h3 style="color: var(--overall)">Overall Score Calculation</h3>
+    <div class="code-block">
+        Overall Score = (Air Quality + Water Safety + Education + NYPD) / 4
+    </div>
+    <p>
+        The overall score provides a holistic view of neighborhood quality, giving equal
+        weight to each metric. Users can also view and filter by individual metrics to
+        prioritize what matters most to them.
+    </p>
+
+    <h2>Data Sources</h2>
+    <p>All data is sourced from official New York City agencies and public datasets:</p>
+    <ul>
+        <li><strong>Air Quality:</strong> EPA AirNow & NYC Department of Health</li>
+        <li><strong>Water Safety:</strong> NYC Department of Environmental Protection (DEP)</li>
+        <li><strong>Education:</strong> NYC Department of Education Open Data</li>
+        <li><strong>Public Safety:</strong> NYPD Complaint Data (NYC Open Data)</li>
+    </ul>
+<footer>
+    <p>&copy; 2026 NYC Quality Index. Data sourced from NYC Open Data.</p>
+</footer>
+</body>
+</html>
