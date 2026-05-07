@@ -72,7 +72,7 @@ function styleFeature(feature) {
     };
 }
 
-// Render a neighborhood block (no descriptions, just scores + buttons)
+// Render a neighborhood block with updated URL structure
 function renderNeighborhoodBlock(zip, data, showHeader = true) {
     const overall = Math.round(data.overall);
     const airVal = Math.round(data.air);
@@ -126,7 +126,7 @@ function renderNeighborhoodBlock(zip, data, showHeader = true) {
             </div>
             
             <div class="action-buttons">
-                <a href="#" class="btn btn-primary read-more-btn" data-zip="${zip}" data-neighborhood="${data.neighborhood}">Read More</a>
+                <a href="/neighborhood/${zip}" class="btn btn-primary read-more-btn">Read More</a>
                 <a href="#" class="btn btn-secondary rentals-btn" data-zip="${zip}" data-neighborhood="${data.neighborhood}" target="_blank">Rentals</a>
             </div>
         </div>
@@ -162,14 +162,6 @@ function showTooltip(primaryZip, primaryData, secondaryZip = null, secondaryData
     }
 
     // Attach event listeners to buttons
-    document.querySelectorAll('.read-more-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const zip = btn.dataset.zip;
-            window.location.href = `neighborhood.html?zip=${zip}`;
-        });
-    });
-
     document.querySelectorAll('.rentals-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -253,13 +245,9 @@ function clearComparison() {
 
 async function init() {
     try {
-        const res = await fetch('data.json');
+        // Fetch data from Flask API
+        const res = await fetch('/api/scores');
         SCORES = await res.json();
-
-        Object.keys(SCORES).forEach(zip => {
-            const d = SCORES[zip];
-            SCORES[zip].overall = (d.air + d.water + d.edu + d.nypd) / 4;
-        });
 
         const geoRes = await fetch("https://raw.githubusercontent.com/fedhere/PUI2015_EC/master/mam1612_EC/nyc-zip-code-tabulation-areas-polygons.geojson");
         const geoData = await geoRes.json();

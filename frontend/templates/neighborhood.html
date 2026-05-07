@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Neighborhood Profile - NYC Quality Index</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;700&family=DM+Sans:wght@300;400;500;700&display=swap"
+          rel="stylesheet"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<nav class="nav">
+    <div class="nav-container">
+        <div class="logo">NYC Quality Index</div>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('map_page') }}">Explore Map</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <a href="{{ url_for('map_page') }}" class="back-link">← Back to Map</a>
+
+    <div class="header">
+        <div class="breadcrumb">
+            <a href="{{ url_for('map_page') }}">Map</a> / <span id="breadcrumbNeighborhood">Loading...</span>
+        </div>
+        <h1 class="zip-title" id="zipCode">{{ zip_code }}</h1>
+        <div class="neighborhood-name" id="neighborhoodName">Loading neighborhood...</div>
+        <div class="overall-badge">
+            Overall Score: <span class="overall-score-lg" id="overallScore">—</span>
+        </div>
+    </div>
+
+    <div class="content-grid">
+        <div class="main-content">
+            <div class="section">
+                <h2 class="section-title">Quality Metrics</h2>
+                <div class="metrics-grid-small">
+                    <div class="metric-item" style="--metric-color: var(--air)">
+                        <div class="metric-name">Air Quality</div>
+                        <div class="metric-value" id="airValue">—</div>
+                        <div class="metric-bar-wrap">
+                            <div class="metric-bar-fill" id="airBar"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item" style="--metric-color: var(--water)">
+                        <div class="metric-name">Drinking Water</div>
+                        <div class="metric-value" id="waterValue">—</div>
+                        <div class="metric-bar-wrap">
+                            <div class="metric-bar-fill" id="waterBar"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item" style="--metric-color: var(--edu)">
+                        <div class="metric-name">Education</div>
+                        <div class="metric-value" id="eduValue">—</div>
+                        <div class="metric-bar-wrap">
+                            <div class="metric-bar-fill" id="eduBar"></div>
+                        </div>
+                    </div>
+                    <div class="metric-item" style="--metric-color: var(--nypd)">
+                        <div class="metric-name">NYPD Complaints</div>
+                        <div class="metric-value" id="nypdValue">—</div>
+                        <div class="metric-bar-wrap">
+                            <div class="metric-bar-fill" id="nypdBar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Neighborhood Overview</h2>
+                <div class="info-row">
+                    <span class="info-label">Borough</span>
+                    <span class="info-value" id="boroughInfo">Manhattan</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Population (est.)</span>
+                    <span class="info-value" id="populationInfo">~45,000</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Area</span>
+                    <span class="info-value" id="areaInfo">2.3 sq mi</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Median Income</span>
+                    <span class="info-value" id="incomeInfo">$85,000</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="real-estate">
+                <div class="real-estate-header">
+                    <h2 class="section-title" style="margin-bottom: 0;">Available Rentals</h2>
+                </div>
+                <div id="listingsContainer">
+                    <!-- Listings will be loaded dynamically -->
+                </div>
+                <button class="view-all-btn" id="viewAllListingsBtn">
+                    View All Listings on StreetEasy
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const ZIP_CODE = '{{ zip_code }}';
+</script>
+<script src="{{ url_for('static', filename='neighborhood.js') }}"></script>
+</body>
+</html>

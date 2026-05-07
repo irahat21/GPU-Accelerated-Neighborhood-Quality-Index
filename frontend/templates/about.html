@@ -6,16 +6,16 @@
     <title>About - NYC Quality Index</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;700&family=DM+Sans:wght@300;400;500;700&display=swap"
           rel="stylesheet"/>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
 <nav class="nav">
     <div class="nav-container">
         <div class="logo">NYC Quality Index</div>
         <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="map.html">Explore Map</a></li>
-            <li><a href="about.html">About</a></li>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('map_page') }}">Explore Map</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
         </ul>
     </div>
 </nav>
@@ -124,8 +124,8 @@
         <li><strong>Education:</strong> NYC Department of Education Open Data</li>
         <li><strong>Public Safety:</strong> NYPD Complaint Data (NYC Open Data)</li>
     </ul>
-<footer>
-    <p>&copy; 2026 NYC Quality Index. Data sourced from NYC Open Data.</p>
-</footer>
+    <footer>
+        <p>&copy; 2026 NYC Quality Index. Data sourced from NYC Open Data.</p>
+    </footer>
 </body>
 </html>

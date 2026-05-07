@@ -6,16 +6,16 @@
     <title>NYC Quality Index - Discover Your Perfect Neighborhood</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;700&family=DM+Sans:wght@300;400;500;700&display=swap"
           rel="stylesheet"/>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
 <nav class="nav">
     <div class="nav-container">
         <div class="logo">NYC Quality Index</div>
         <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="map.html">Explore Map</a></li>
-            <li><a href="about.html">About</a></li>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('map_page') }}">Explore Map</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
         </ul>
     </div>
 </nav>
@@ -26,13 +26,14 @@
         <span style="background: var(--water); background-clip: text;">Your</span>
         <span style="background: var(--edu); background-clip: text;">Perfect</span>
         <span style="background: var(--nypd); background-clip: text;">NYC</span>
-        <span style="background: var(--overall); background-clip: text;">Neighborhood</span></h1>
+        <span style="background: var(--overall); background-clip: text;">Neighborhood</span>
+    </h1>
     <p class="hero-subtitle">
         Explore comprehensive quality scores for every NYC zip code.
         Compare air quality, water safety, education, and public safety
         to make informed decisions about where to live.
     </p>
-    <a href="map.html" class="cta-button">Explore the Map</a>
+    <a href="{{ url_for('map_page') }}" class="cta-button">Explore the Map</a>
 </section>
 
 <div class="metrics-grid">
