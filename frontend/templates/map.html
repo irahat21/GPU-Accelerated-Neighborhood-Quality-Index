@@ -15,7 +15,14 @@
 <div class="panel">
     <div class="panel-header">
         <div class="panel-title">NYC Quality Index</div>
-        <div class="panel-sub">by zip code</div>
+        <div class="panel-sub" id="panelSubtitle">by community district</div>
+        <div class="geography-select-wrap">
+            <label class="geography-select-label" for="geographySelect">Map View</label>
+            <select id="geographySelect" class="geography-select">
+                <option value="community_district">Community District</option>
+                <option value="borough">Borough</option>
+            </select>
+        </div>
     </div>
     <div class="metric-list">
         <button class="metric-btn active" data-metric="overall" style="--accent-color: #9b64ff">
@@ -40,8 +47,8 @@
         </button>
         <button class="metric-btn" data-metric="nypd" style="--accent-color: #ff5e7a">
             <div class="metric-dot" style="background: #ff5e7a"></div>
-            <span class="metric-label">NYPD Complaints</span>
-            <span class="metric-key">CPT</span>
+            <span class="metric-label">Public Safety</span>
+            <span class="metric-key">SAFE</span>
         </button>
     </div>
 </div>
@@ -53,7 +60,7 @@
 
 <button class="compare-btn" id="compareBtn">Compare</button>
 <div class="compare-instruction" id="compareInstruction">
-    Click two zip codes on the map to compare
+    Click two areas on the map to compare
 </div>
 
 <!-- Unified Tooltip Panel -->
