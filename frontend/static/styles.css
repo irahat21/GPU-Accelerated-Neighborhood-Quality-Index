@@ -117,6 +117,39 @@ body {
     font-family: 'JetBrains Mono', monospace;
 }
 
+.geography-select-wrap {
+    margin-top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.geography-select-label {
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.geography-select {
+    width: 100%;
+    appearance: none;
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    outline: none;
+}
+
+.geography-select:focus {
+    border-color: var(--overall);
+    box-shadow: 0 0 0 1px rgba(155, 100, 255, 0.25);
+}
+
 .metric-list {
     padding: 14px 16px;
     display: flex;
@@ -285,6 +318,82 @@ body {
     transition: width 0.3s ease;
 }
 
+.metric-hero-card {
+    margin-bottom: 14px;
+}
+
+.metric-focus-panel {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+}
+
+.metric-focus-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.metric-focus-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    letter-spacing: 1px;
+    line-height: 1;
+}
+
+.metric-focus-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 4px 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.metric-focus-copy {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.metric-detail-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.metric-detail-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    font-size: 12px;
+    line-height: 1.4;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.metric-detail-row span {
+    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.metric-detail-row strong {
+    color: var(--text);
+    font-weight: 600;
+    text-align: right;
+}
+
 /* Action Buttons */
 .action-buttons {
     display: flex;
@@ -321,6 +430,16 @@ body {
 
 .btn-secondary:hover {
     background: rgba(255, 255, 255, 0.2);
+}
+
+.geography-note-actions {
+    display: block;
+}
+
+.geography-note {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.5;
 }
 
 /* Comparison Button */
