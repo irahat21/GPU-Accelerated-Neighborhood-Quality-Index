@@ -5,6 +5,7 @@ import os
 INPUT_CSV = "data/Air_Quality_20260217.csv"
 OUTPUT_DIR = "outputs"
 OUTPUT_CSV = "air_quality_table.csv"
+DEFAULT_GEO_TYPE = "CD"
 
 TARGET_INDICATORS = {
     "Nitrogen dioxide (NO2)": "NO2",
@@ -26,7 +27,16 @@ def normalize_indicator_name(name: str) -> str:
     return " ".join((name or "").strip().split())
 
 
-def run_gpu(input_path: str, outdir: str) -> None:
+def normalize_geo_type_name(name: str) -> str:
+    return " ".join((name or "").strip().split())
+
+
+def resolve_output_path(outdir: str, output_file: str | None) -> str:
+    filename = output_file or OUTPUT_CSV
+    return os.path.join(outdir, filename)
+
+
+def run_gpu(input_path: str, outdir: str, geo_type: str, output_file: str | None) -> None:
     import cudf
     import cupy as cp
 
@@ -34,7 +44,8 @@ def run_gpu(input_path: str, outdir: str) -> None:
     if "Message" in df.columns:
         df = df.drop(columns=["Message"])
 
-    df = df[df["Geo Type Name"] == "UHF42"]
+    df["Geo Type Name"] = df["Geo Type Name"].astype("str")
+    df = df[df["Geo Type Name"] == geo_type]
     df = df.dropna(subset=["Name", "Geo Join ID", "Geo Place Name", "Data Value"])
 
     names_cpu = df["Name"].astype("str").to_pandas().map(normalize_indicator_name)
@@ -73,6 +84,7 @@ def run_gpu(input_path: str, outdir: str) -> None:
 
     zmat = cp.stack([cp.asarray(wide[c].fillna(cp.nan).to_cupy()) for c in score_cols], axis=1)
     wide["AirScore"] = cudf.Series(cp.nanmean(zmat, axis=1))
+    wide["Geo Type Name"] = geo_type
 
     wide = wide.sort_values("AirScore", ascending=False).reset_index(drop=True)
     wide["Rank"] = wide.index + 1
@@ -85,16 +97,17 @@ def run_gpu(input_path: str, outdir: str) -> None:
         wide.iloc[len(wide) - top_n :, seg_col] = "Bottom"
 
     os.makedirs(outdir, exist_ok=True)
-    out_csv = os.path.join(outdir, OUTPUT_CSV)
+    out_csv = resolve_output_path(outdir, output_file)
     wide.to_csv(out_csv, index=False)
 
     print("[INFO] GPU pipeline complete")
     print(f"[INFO] Saved: {out_csv}")
+    print(f"[INFO] Geography: {geo_type}")
     print("\n[INFO] Top 5 AirScore districts")
     print(wide[["Rank", "Geo Place Name", "AirScore"]].head(5).to_pandas())
 
 
-def run_cpu(input_path: str, outdir: str) -> None:
+def run_cpu(input_path: str, outdir: str, geo_type: str, output_file: str | None) -> None:
     import pandas as pd
     import numpy as np
 
@@ -102,7 +115,8 @@ def run_cpu(input_path: str, outdir: str) -> None:
     if "Message" in df.columns:
         df = df.drop(columns=["Message"])
 
-    df = df[df["Geo Type Name"] == "UHF42"].copy()
+    df["Geo Type Name"] = df["Geo Type Name"].astype(str).map(normalize_geo_type_name)
+    df = df[df["Geo Type Name"] == geo_type].copy()
     df = df.dropna(subset=["Name", "Geo Join ID", "Geo Place Name", "Data Value"])
 
     df["Name"] = df["Name"].astype(str).map(normalize_indicator_name)
@@ -138,6 +152,7 @@ def run_cpu(input_path: str, outdir: str) -> None:
         raise RuntimeError("No pollutant columns found after filtering. Check indicator names.")
 
     wide["AirScore"] = np.nanmean(wide[score_cols].to_numpy(dtype=float), axis=1)
+    wide["Geo Type Name"] = geo_type
 
     wide = wide.sort_values("AirScore", ascending=False).reset_index(drop=True)
     wide["Rank"] = np.arange(1, len(wide) + 1)
@@ -149,11 +164,12 @@ def run_cpu(input_path: str, outdir: str) -> None:
         wide.loc[len(wide) - top_n :, "Segment"] = "Bottom"
 
     os.makedirs(outdir, exist_ok=True)
-    out_csv = os.path.join(outdir, OUTPUT_CSV)
+    out_csv = resolve_output_path(outdir, output_file)
     wide.to_csv(out_csv, index=False)
 
     print("[INFO] CPU pipeline complete (fallback)")
     print(f"[INFO] Saved: {out_csv}")
+    print(f"[INFO] Geography: {geo_type}")
     print("\n[INFO] Top 5 AirScore districts")
     print(wide[["Rank", "Geo Place Name", "AirScore"]].head(5).to_string(index=False))
 
@@ -162,17 +178,30 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--input", default=INPUT_CSV, help="Path to Air Quality CSV")
     ap.add_argument("--outdir", default=OUTPUT_DIR, help="Output directory")
+    ap.add_argument(
+        "--geo-type",
+        default=DEFAULT_GEO_TYPE,
+        help="Geography level from the source file, such as CD, UHF42, Borough, or UHF34",
+    )
+    ap.add_argument(
+        "--output-file",
+        default=OUTPUT_CSV,
+        help="Output CSV filename written under the output directory",
+    )
     args = ap.parse_args()
 
     if not os.path.exists(args.input):
         raise FileNotFoundError(f"Input CSV not found: {args.input}")
 
+    geo_type = normalize_geo_type_name(args.geo_type)
+
     if has_gpu_stack():
-        run_gpu(args.input, args.outdir)
+        run_gpu(args.input, args.outdir, geo_type, args.output_file)
     else:
         print("[INFO] GPU libs not found (cudf/cupy). Running CPU fallback.")
-        run_cpu(args.input, args.outdir)
+        run_cpu(args.input, args.outdir, geo_type, args.output_file)
 
 
 if __name__ == "__main__":
     main()
+
