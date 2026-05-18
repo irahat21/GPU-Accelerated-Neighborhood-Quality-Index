@@ -3,15 +3,24 @@ const METRICS = {
     air: {label: "Air Quality", color: "#00c896", key: "air"},
     water: {label: "Drinking Water", color: "#3b9eff", key: "water"},
     edu: {label: "Education", color: "#f5a623", key: "edu"},
-    nypd: {label: "NYPD Complaints", color: "#ff5e7a", key: "nypd"}
+    nypd: {label: "Public Safety", color: "#ff5e7a", key: "nypd"}
+};
+
+const GEOGRAPHY_LABELS = {
+    community_district: "Community District",
+    borough: "Borough",
+    nta: "Neighborhood Tabulation Area",
+    zip: "ZIP Code"
 };
 
 let currentMetric = "overall";
+let currentGeography = "community_district";
+let map = null;
 let geojsonLayer = null;
-let pinnedZip = null;
-let SCORES = {};
+let pinnedArea = null;
+let scores = {};
+let geographyMeta = {};
 
-// Comparison mode state
 let compareMode = false;
 let compareSelection = [];
 
@@ -20,16 +29,21 @@ const NYC_BOUNDS = [
     [40.917577, -73.700272]
 ];
 
-const map = L.map("map", {
-    center: [40.7128, -74.0060],
-    zoom: 10.5,
-    minZoom: 10.4,
-    maxBounds: NYC_BOUNDS,
-    maxBoundsViscosity: 1.0
-});
+function ensureMap() {
+    if (map) return map;
 
-L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png").addTo(map);
-L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_only_labels/{z}/{x}/{y}{r}.png", {pane: 'shadowPane'}).addTo(map);
+    map = L.map("map", {
+        center: [40.7128, -74.0060],
+        zoom: 10.5,
+        minZoom: 10.4,
+        maxBounds: NYC_BOUNDS,
+        maxBoundsViscosity: 1.0
+    });
+
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png").addTo(map);
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_only_labels/{z}/{x}/{y}{r}.png", {pane: "shadowPane"}).addTo(map);
+    return map;
+}
 
 function lerp(a, b, t) {
     return a + (b - a) * t;
@@ -42,11 +56,11 @@ function interpolateColor(c1, c2, t) {
 }
 
 const COLOR_SCALES = {
-    air: { light: [245, 255, 252], mid: [0, 200, 150], dark: [0, 90, 70] },
-    water: { light: [245, 250, 255], mid: [59, 158, 255], dark: [15, 70, 160] },
-    edu: { light: [255, 248, 235], mid: [245, 166, 35], dark: [140, 85, 0] },
-    nypd: { light: [255, 240, 245], mid: [255, 94, 122], dark: [170, 40, 70] },
-    overall: { light: [250, 245, 255], mid: [155, 100, 255], dark: [75, 40, 160] }
+    air: {light: [245, 255, 252], mid: [0, 200, 150], dark: [0, 90, 70]},
+    water: {light: [245, 250, 255], mid: [59, 158, 255], dark: [15, 70, 160]},
+    edu: {light: [255, 248, 235], mid: [245, 166, 35], dark: [140, 85, 0]},
+    nypd: {light: [255, 240, 245], mid: [255, 94, 122], dark: [170, 40, 70]},
+    overall: {light: [250, 245, 255], mid: [155, 100, 255], dark: [75, 40, 160]}
 };
 
 function scoreToColor(score, metric) {
@@ -54,16 +68,37 @@ function scoreToColor(score, metric) {
     const scale = COLOR_SCALES[metric];
     if (t < 0.5) {
         return interpolateColor(scale.light, scale.mid, t * 2);
-    } else {
-        return interpolateColor(scale.mid, scale.dark, (t - 0.5) * 2);
     }
+    return interpolateColor(scale.mid, scale.dark, (t - 0.5) * 2);
+}
+
+function getFeatureId(feature) {
+    return String(feature?.properties?.geo_id ?? feature?.properties?.BoroCD ?? "");
+}
+
+function formatAreaLabel(areaId, data = null) {
+    if (currentGeography === "borough") {
+        return data?.name || areaId;
+    }
+    if (currentGeography === "nta") {
+        return data?.name || areaId;
+    }
+    if (currentGeography === "zip") {
+        return `ZIP ${areaId}`;
+    }
+
+    if (areaId.length < 3) return `CD ${areaId}`;
+    return `CD ${areaId[0]}-${areaId.slice(1)}`;
 }
 
 function styleFeature(feature) {
-    const zip = feature.properties.ZIPCODE;
-    const data = SCORES[zip];
+    const areaId = getFeatureId(feature);
+    const data = scores[areaId];
     if (!data) return {fillColor: "#1a1e25", weight: 0.5, color: "#333", fillOpacity: 0.5};
+
     const score = data[currentMetric];
+    if (score == null) return {fillColor: "#1a1e25", weight: 0.5, color: "#333", fillOpacity: 0.5};
+
     return {
         fillColor: scoreToColor(score, currentMetric),
         weight: 0.8,
@@ -72,20 +107,44 @@ function styleFeature(feature) {
     };
 }
 
-// Render a neighborhood block with updated URL structure
-function renderNeighborhoodBlock(zip, data, showHeader = true) {
-    const overall = Math.round(data.overall);
-    const airVal = Math.round(data.air);
-    const waterVal = Math.round(data.water);
-    const eduVal = Math.round(data.edu);
-    const nypdVal = Math.round(data.nypd);
-    const neighborhoodName = data.neighborhood ? data.neighborhood.toUpperCase() : zip;
+function buildStreetEasyUrl(name) {
+    const slug = (name || "")
+        .replace(/\(.*?\)/g, "")
+        .trim()
+        .toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, "")
+        .replace(/\s+/g, "-");
+    return `https://streeteasy.com/for-rent/${slug}`;
+}
 
-    return `
-        <div>
-            ${showHeader ? `<div class="tooltip-zip">${zip}</div>
-            <div class="tooltip-borough">${neighborhoodName}</div>` : ''}
-            
+function getScoreBand(score) {
+    if (score >= 90) return "Excellent";
+    if (score >= 70) return "Good";
+    if (score >= 50) return "Moderate";
+    if (score >= 30) return "Below Average";
+    return "Needs Attention";
+}
+
+function formatDetailValue(value) {
+    if (typeof value === "number") {
+        return Number.isInteger(value) ? value.toLocaleString() : value.toFixed(3).replace(/\.?0+$/, "");
+    }
+    return value ?? "—";
+}
+
+function renderMetricDetails(metric, data) {
+    const details = data.details?.[metric] || {};
+
+    if (metric === "overall") {
+        const overall = Math.round(data.overall);
+        const airVal = Math.round(data.air);
+        const waterVal = Math.round(data.water);
+        const eduVal = Math.round(data.edu);
+        const nypdVal = Math.round(data.nypd);
+        const geographyLabel = GEOGRAPHY_LABELS[currentGeography] || "Area";
+        const rankText = details.rank ? `Rank #${details.rank}` : geographyLabel;
+
+        return `
             <div class="score-card" style="border-left-color: #9b64ff; margin-bottom: 8px;">
                 <div class="score-name">Overall</div>
                 <div class="score-value" style="color: #9b64ff">${overall}</div>
@@ -93,7 +152,7 @@ function renderNeighborhoodBlock(zip, data, showHeader = true) {
                     <div class="score-bar-fill" style="background: #9b64ff; width: ${overall}%"></div>
                 </div>
             </div>
-            
+
             <div class="score-grid">
                 <div class="score-card" style="border-left-color: #00c896">
                     <div class="score-name">Air Quality</div>
@@ -117,29 +176,122 @@ function renderNeighborhoodBlock(zip, data, showHeader = true) {
                     </div>
                 </div>
                 <div class="score-card" style="border-left-color: #ff5e7a">
-                    <div class="score-name">NYPD Complaints</div>
+                    <div class="score-name">Public Safety</div>
                     <div class="score-value" style="color: #ff5e7a">${nypdVal}</div>
                     <div class="score-bar-wrap">
                         <div class="score-bar-fill" style="background: #ff5e7a; width: ${nypdVal}%"></div>
                     </div>
                 </div>
             </div>
-            
-            <div class="action-buttons">
-                <a href="/neighborhood/${zip}" class="btn btn-primary read-more-btn">Read More</a>
-                <a href="#" class="btn btn-secondary rentals-btn" data-zip="${zip}" data-neighborhood="${data.neighborhood}" target="_blank">Rentals</a>
+
+            <div class="metric-focus-panel">
+                <div class="metric-focus-header">
+                    <span class="metric-focus-title">Combined NQI</span>
+                    <span class="metric-focus-badge">${rankText}</span>
+                </div>
+                <div class="metric-focus-copy">${details.method || "Equal average across all four project metrics."}</div>
+            </div>
+        `;
+    }
+
+    const score = Math.round(data[metric]);
+    const metricMeta = METRICS[metric];
+    let detailRows = "";
+
+    if (metric === "air") {
+        detailRows = `
+            <div class="metric-detail-row"><span>Raw Pollution Burden</span><strong>${formatDetailValue(details.raw_score)}</strong></div>
+            <div class="metric-detail-row"><span>PM2.5</span><strong>${formatDetailValue(details.pm25)}</strong></div>
+            <div class="metric-detail-row"><span>NO2</span><strong>${formatDetailValue(details.no2)}</strong></div>
+            <div class="metric-detail-row"><span>O3</span><strong>${formatDetailValue(details.o3)}</strong></div>
+        `;
+    } else if (metric === "water") {
+        detailRows = `
+            <div class="metric-detail-row"><span>Raw Water Score</span><strong>${formatDetailValue(details.raw_score)}</strong></div>
+            <div class="metric-detail-row"><span>Sampling Sites Used</span><strong>${formatDetailValue(details.sample_sites)}</strong></div>
+            <div class="metric-detail-row"><span>Scale</span><strong>Higher is better</strong></div>
+        `;
+    } else if (metric === "edu") {
+        detailRows = `
+            <div class="metric-detail-row"><span>Raw Education Score</span><strong>${formatDetailValue(details.raw_score)}</strong></div>
+            <div class="metric-detail-row"><span>Schools Used</span><strong>${formatDetailValue(details.schools)}</strong></div>
+            <div class="metric-detail-row"><span>Scale</span><strong>Higher is better</strong></div>
+        `;
+    } else if (metric === "nypd") {
+        detailRows = `
+            <div class="metric-detail-row"><span>Raw Safety Score</span><strong>${formatDetailValue(details.raw_score)}</strong></div>
+            <div class="metric-detail-row"><span>Incident Count</span><strong>${formatDetailValue(details.incidents)}</strong></div>
+            <div class="metric-detail-row"><span>Weighted Severity Sum</span><strong>${formatDetailValue(details.weighted_severity_sum)}</strong></div>
+        `;
+    }
+
+    return `
+        <div class="score-card metric-hero-card" style="border-left-color: ${metricMeta.color}; margin-bottom: 12px;">
+            <div class="score-name">${metricMeta.label}</div>
+            <div class="score-value" style="color: ${metricMeta.color}">${score}</div>
+            <div class="score-bar-wrap">
+                <div class="score-bar-fill" style="background: ${metricMeta.color}; width: ${score}%"></div>
+            </div>
+        </div>
+
+        <div class="metric-focus-panel">
+            <div class="metric-focus-header">
+                <span class="metric-focus-title">${metricMeta.label}</span>
+                <span class="metric-focus-badge">${getScoreBand(score)}</span>
+            </div>
+            <div class="metric-focus-copy">${GEOGRAPHY_LABELS[currentGeography] || "Area"}-level ${metricMeta.label.toLowerCase()} score shown on a 0-100 normalized scale.</div>
+            <div class="metric-detail-list">
+                ${detailRows}
             </div>
         </div>
     `;
 }
 
-// Show tooltip: single or dual comparison
-function showTooltip(primaryZip, primaryData, secondaryZip = null, secondaryData = null) {
+function renderActions(areaId, data) {
+    if (currentGeography !== "community_district") {
+        return `
+            <div class="action-buttons geography-note-actions">
+                <div class="geography-note">Detailed profile pages and rentals remain available in community district view.</div>
+            </div>
+        `;
+    }
+
+    return `
+        <div class="action-buttons">
+            <a href="/neighborhood/${areaId}/" class="btn btn-primary read-more-btn">Read More</a>
+            <a href="#" class="btn btn-secondary rentals-btn" data-name="${data.name}">Rentals</a>
+        </div>
+    `;
+}
+
+function renderAreaBlock(areaId, data, showHeader = true) {
+    const heading = formatAreaLabel(areaId, data);
+    let subheading = data.name ? data.name.toUpperCase() : heading;
+
+    if (currentGeography === "borough") {
+        subheading = "BOROUGH ROLLUP";
+    } else if (currentGeography === "nta") {
+        subheading = `NTA ${areaId}`;
+    } else if (currentGeography === "zip") {
+        subheading = data.name ? data.name.toUpperCase() : "MODZCTA";
+    }
+
+    return `
+        <div>
+            ${showHeader ? `<div class="tooltip-zip">${heading}</div>
+            <div class="tooltip-borough">${subheading}</div>` : ""}
+            ${renderMetricDetails(currentMetric, data)}
+            ${renderActions(areaId, data)}
+        </div>
+    `;
+}
+
+function showTooltip(primaryArea, primaryData, secondaryArea = null, secondaryData = null) {
     const panel = document.getElementById("tooltipPanel");
     const contentDiv = document.getElementById("tooltipContent");
     const closeBtn = document.getElementById("closeCompareTooltip");
 
-    if (secondaryZip && secondaryData) {
+    if (secondaryArea && secondaryData) {
         panel.classList.add("comparison-mode");
         closeBtn.style.display = "flex";
         contentDiv.innerHTML = `
@@ -148,40 +300,45 @@ function showTooltip(primaryZip, primaryData, secondaryZip = null, secondaryData
             </div>
             <div class="comparison-split">
                 <div class="neighborhood-col">
-                    ${renderNeighborhoodBlock(primaryZip, primaryData, true)}
+                    ${renderAreaBlock(primaryArea, primaryData, true)}
                 </div>
                 <div class="neighborhood-col">
-                    ${renderNeighborhoodBlock(secondaryZip, secondaryData, true)}
+                    ${renderAreaBlock(secondaryArea, secondaryData, true)}
                 </div>
             </div>
         `;
     } else {
         panel.classList.remove("comparison-mode");
         closeBtn.style.display = "none";
-        contentDiv.innerHTML = renderNeighborhoodBlock(primaryZip, primaryData, true);
+        contentDiv.innerHTML = renderAreaBlock(primaryArea, primaryData, true);
     }
 
-    // Attach event listeners to buttons
-    document.querySelectorAll('.rentals-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
+    document.querySelectorAll(".rentals-btn").forEach(btn => {
+        btn.addEventListener("click", e => {
             e.preventDefault();
-            const neighborhood = btn.dataset.neighborhood;
-            const zip = btn.dataset.zip;
-            const url = `https://streeteasy.com/for-rent/${neighborhood.toLowerCase().replace(/\s+/g, '-')}/zip:${zip}`;
-            window.open(url, '_blank');
+            window.open(buildStreetEasyUrl(btn.dataset.name), "_blank");
         });
     });
 
     panel.style.display = "block";
 }
 
-function hideTooltip() {
-    if (!compareMode && pinnedZip === null) {
-        document.getElementById("tooltipPanel").style.display = "none";
-    }
+function resetSelectionState() {
+    pinnedArea = null;
+    compareSelection = [];
+    const panel = document.getElementById("tooltipPanel");
+    panel.classList.remove("comparison-mode");
+    panel.style.display = "none";
+    const instruction = document.getElementById("compareInstruction");
+    instruction.style.display = compareMode ? "block" : "none";
 }
 
-// Toggle compare mode
+function updateCompareInstruction() {
+    const instruction = document.getElementById("compareInstruction");
+    const label = (GEOGRAPHY_LABELS[currentGeography] || "area").toLowerCase();
+    instruction.textContent = `Click two ${label}s on the map to compare`;
+}
+
 function toggleCompareMode() {
     compareMode = !compareMode;
     const btn = document.getElementById("compareBtn");
@@ -191,8 +348,8 @@ function toggleCompareMode() {
         btn.classList.add("active");
         btn.textContent = "Cancel Compare";
         instruction.style.display = "block";
+        pinnedArea = null;
         compareSelection = [];
-        if (pinnedZip) pinnedZip = null;
         document.getElementById("tooltipPanel").style.display = "none";
     } else {
         btn.classList.remove("active");
@@ -201,40 +358,37 @@ function toggleCompareMode() {
         compareSelection = [];
         const panel = document.getElementById("tooltipPanel");
         panel.classList.remove("comparison-mode");
-        if (pinnedZip && SCORES[pinnedZip]) {
-            showTooltip(pinnedZip, SCORES[pinnedZip]);
+        if (pinnedArea && scores[pinnedArea]) {
+            showTooltip(pinnedArea, scores[pinnedArea]);
         } else {
             panel.style.display = "none";
         }
     }
 }
 
-// Add zip to comparison
-function addToComparison(zip, data) {
-    if (!compareMode) return;
-    if (compareSelection.includes(zip)) return;
+function addToComparison(areaId) {
+    if (!compareMode || compareSelection.includes(areaId)) return;
 
     if (compareSelection.length < 2) {
-        compareSelection.push(zip);
+        compareSelection.push(areaId);
 
         if (compareSelection.length === 1) {
-            showTooltip(compareSelection[0], SCORES[compareSelection[0]]);
-        } else if (compareSelection.length === 2) {
-            const zip1 = compareSelection[0];
-            const zip2 = compareSelection[1];
-            showTooltip(zip1, SCORES[zip1], zip2, SCORES[zip2]);
+            showTooltip(compareSelection[0], scores[compareSelection[0]]);
+        } else {
+            const area1 = compareSelection[0];
+            const area2 = compareSelection[1];
+            showTooltip(area1, scores[area1], area2, scores[area2]);
             document.getElementById("compareInstruction").style.display = "none";
         }
     }
 }
 
-// Clear comparison
 function clearComparison() {
     compareSelection = [];
     const panel = document.getElementById("tooltipPanel");
     panel.classList.remove("comparison-mode");
-    if (pinnedZip && SCORES[pinnedZip]) {
-        showTooltip(pinnedZip, SCORES[pinnedZip]);
+    if (pinnedArea && scores[pinnedArea]) {
+        showTooltip(pinnedArea, scores[pinnedArea]);
     } else {
         panel.style.display = "none";
     }
@@ -243,76 +397,115 @@ function clearComparison() {
     }
 }
 
+function bindFeatureEvents(feature, layer) {
+    const areaId = getFeatureId(feature);
+    const data = scores[areaId];
+
+    layer.on({
+        mouseover: e => {
+            if ((!compareMode && pinnedArea === null) || (compareMode && compareSelection.length < 2 && pinnedArea === null)) {
+                e.target.setStyle({weight: 2, color: "#fff", fillOpacity: 0.9});
+                if (data) showTooltip(areaId, data);
+            }
+        },
+        mouseout: e => {
+            if (!compareMode && pinnedArea === null) {
+                geojsonLayer.resetStyle(e.target);
+                document.getElementById("tooltipPanel").style.display = "none";
+            } else if (compareMode && compareSelection.length < 2 && pinnedArea === null) {
+                geojsonLayer.resetStyle(e.target);
+                if (compareSelection.length === 0) {
+                    document.getElementById("tooltipPanel").style.display = "none";
+                }
+            }
+        },
+        click: () => {
+            if (compareMode) {
+                addToComparison(areaId);
+            } else {
+                pinnedArea = (pinnedArea === areaId) ? null : areaId;
+                if (data) showTooltip(areaId, data);
+                if (pinnedArea === null) {
+                    document.getElementById("tooltipPanel").style.display = "none";
+                }
+            }
+        }
+    });
+}
+
+function renderGeoLayer(geoData) {
+    ensureMap();
+
+    if (geojsonLayer) {
+        map.removeLayer(geojsonLayer);
+    }
+
+    const filtered = {
+        type: "FeatureCollection",
+        features: geoData.features.filter(feature => scores[getFeatureId(feature)])
+    };
+
+    geojsonLayer = L.geoJSON(filtered, {
+        style: styleFeature,
+        onEachFeature: bindFeatureEvents
+    }).addTo(map);
+
+    const bounds = geojsonLayer.getBounds();
+    if (bounds.isValid()) {
+        map.fitBounds(bounds.pad(0.05));
+    }
+}
+
+async function loadGeography(geography) {
+    const response = await fetch(`/api/map-data/${geography}`);
+    if (!response.ok) {
+        throw new Error(`Failed to load map data for ${geography}`);
+    }
+
+    const payload = await response.json();
+    currentGeography = geography;
+    scores = payload.scores || {};
+    document.getElementById("panelSubtitle").textContent = payload.subtitle || `by ${payload.label.toLowerCase()}`;
+    updateCompareInstruction();
+    resetSelectionState();
+    renderGeoLayer(payload.geojson);
+}
+
 async function init() {
     try {
-        // Fetch data from Flask API
-        const res = await fetch('/api/scores');
-        SCORES = await res.json();
+        const geoResponse = await fetch("/api/geographies");
+        geographyMeta = await geoResponse.json();
 
-        const geoRes = await fetch("https://raw.githubusercontent.com/fedhere/PUI2015_EC/master/mam1612_EC/nyc-zip-code-tabulation-areas-polygons.geojson");
-        const geoData = await geoRes.json();
+        const select = document.getElementById("geographySelect");
+        select.innerHTML = Object.entries(geographyMeta).map(([key, meta]) => (
+            `<option value="${key}">${meta.label}</option>`
+        )).join("");
+        select.value = currentGeography;
 
-        const filtered = {
-            type: "FeatureCollection",
-            features: geoData.features.filter(f => {
-                const zip = f.properties.postalCode || f.properties.ZIPCODE;
-                f.properties.ZIPCODE = zip;
-                return SCORES[zip];
-            })
-        };
+        await loadGeography(currentGeography);
 
-        geojsonLayer = L.geoJSON(filtered, {
-            style: styleFeature,
-            onEachFeature: (feature, layer) => {
-                const zip = feature.properties.ZIPCODE;
-                const data = SCORES[zip];
-                layer.on({
-                    mouseover: (e) => {
-                        if (!compareMode && pinnedZip === null) {
-                            e.target.setStyle({weight: 2, color: "#fff", fillOpacity: 0.9});
-                            if (data) showTooltip(zip, data);
-                        } else if (compareMode && compareSelection.length < 2 && pinnedZip === null) {
-                            e.target.setStyle({weight: 2, color: "#fff", fillOpacity: 0.9});
-                            if (data) showTooltip(zip, data);
-                        }
-                    },
-                    mouseout: (e) => {
-                        if (!compareMode && pinnedZip === null) {
-                            geojsonLayer.resetStyle(e.target);
-                            if (!pinnedZip) {
-                                document.getElementById("tooltipPanel").style.display = "none";
-                            }
-                        } else if (compareMode && compareSelection.length < 2 && pinnedZip === null) {
-                            geojsonLayer.resetStyle(e.target);
-                            if (!pinnedZip && compareSelection.length === 0) {
-                                document.getElementById("tooltipPanel").style.display = "none";
-                            }
-                        }
-                    },
-                    click: (e) => {
-                        if (compareMode) {
-                            addToComparison(zip, data);
-                        } else {
-                            pinnedZip = (pinnedZip === zip) ? null : zip;
-                            if (data) showTooltip(zip, data);
-                        }
-                    }
-                });
-            }
-        }).addTo(map);
-
+        select.addEventListener("change", async e => {
+            await loadGeography(e.target.value);
+        });
     } catch (err) {
         console.error("Error loading map data:", err);
     }
 }
 
-// Event listeners
 document.querySelectorAll(".metric-btn").forEach(btn => {
     btn.addEventListener("click", () => {
         document.querySelectorAll(".metric-btn").forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
         currentMetric = btn.dataset.metric;
         if (geojsonLayer) geojsonLayer.setStyle(styleFeature);
+
+        if (compareMode && compareSelection.length === 2) {
+            const area1 = compareSelection[0];
+            const area2 = compareSelection[1];
+            showTooltip(area1, scores[area1], area2, scores[area2]);
+        } else if (pinnedArea && scores[pinnedArea]) {
+            showTooltip(pinnedArea, scores[pinnedArea]);
+        }
     });
 });
 
@@ -322,19 +515,19 @@ document.getElementById("closeCompareTooltip").addEventListener("click", () => {
         clearComparison();
     } else {
         document.getElementById("tooltipPanel").style.display = "none";
-        pinnedZip = null;
+        pinnedArea = null;
     }
 });
 
-// Close tooltip when clicking outside
-document.addEventListener('click', function(e) {
+document.addEventListener("click", e => {
     const panel = document.getElementById("tooltipPanel");
-    const compareBtn = document.getElementById("compareBtn");
-    if (panel.style.display === 'block' && !compareMode && pinnedZip === null) {
-        if (!panel.contains(e.target) && !e.target.closest('.leaflet-interactive')) {
-            panel.style.display = 'none';
+    if (panel.style.display === "block" && !compareMode && pinnedArea === null) {
+        if (!panel.contains(e.target) && !e.target.closest(".leaflet-interactive")) {
+            panel.style.display = "none";
         }
     }
 });
 
-init();
+window.addEventListener("load", () => {
+    window.setTimeout(init, 0);
+});
