@@ -24,102 +24,146 @@
     <h1>About NYC Quality Index</h1>
 
     <p class="intro">
-        The NYC Quality Index is a comprehensive tool designed to help New Yorkers
-        make informed decisions about where to live, work, and invest. By aggregating
-        and visualizing key quality-of-life metrics across all NYC zip codes, we provide
-        transparent, data-driven insights into neighborhood livability.
+        NYC Quality Index is an interactive quality-of-life mapping platform built to help users
+        compare New York City areas using public data. The current prototype combines four core
+        categories, normalizes them onto a shared 0-100 scale, and lets users explore results
+        across multiple NYC geographies.
     </p>
 
     <h2>Our Mission</h2>
     <p>
-        We believe everyone deserves access to clear, accurate information about their
-        neighborhood's quality. Our platform democratizes data that was previously scattered
-        across multiple city agencies, making it easy to understand and compare neighborhoods
-        at a glance.
+        Our goal is to turn scattered public datasets into a single, readable system for comparing
+        neighborhood conditions. Rather than making users search through multiple city data portals,
+        NYC Quality Index presents environmental, educational, and public-safety indicators in one place.
     </p>
 
-    <h2>Methodology</h2>
+    <h2>What The App Measures</h2>
     <p>
-        Our quality scores are calculated using a transparent, data-driven approach.
-        Each metric is scored on a scale of 0-100, with higher scores indicating better conditions.
+        The current prototype focuses on four categories:
+    </p>
+    <ul>
+        <li><strong>Air Quality:</strong> pollution burden using PM2.5, NO2, and O3 measurements</li>
+        <li><strong>Drinking Water:</strong> sampled water quality indicators from public monitoring sites</li>
+        <li><strong>Education:</strong> school-level quality inputs aggregated into area-level scores</li>
+        <li><strong>Public Safety:</strong> NYPD complaint burden using severity-weighted incident totals</li>
+    </ul>
+
+    <h2>Current Methodology</h2>
+    <p>
+        NYC Quality Index is built at the community-district level first. Air and public safety were already
+        available in district-ready form, while water and education were spatially aggregated into community
+        districts and then merged into one combined score table.
+    </p>
+    <p>
+        Each metric is converted to a normalized 0-100 quality scale so different data types can be compared
+        side by side. Higher values indicate better conditions for the displayed metric.
+    </p>
+
+    <h3 style="color: var(--overall)">Overall Score Calculation</h3>
+    <div class="code-block">
+        Overall Score = (Air + Water + Education + Public Safety) / 4
+    </div>
+    <p>
+        The overall score is an equal average of the four normalized subscores. This is the official scoring
+        method used throughout the current NYC Quality Index platform and across every geography view shown in
+        the application.
     </p>
 
     <div class="metric-box" style="--accent: var(--air)">
-        <h3 style="color: var(--air)">Air Quality Index (AQI)</h3>
+        <h3 style="color: var(--air)">Air Quality</h3>
         <p>
-            Based on EPA air quality monitoring data, measuring particulate matter (PM2.5, PM10),
-            ozone levels, and other pollutants. Scores are normalized to a 0-100 scale where:
+            Air quality is based on monitored pollutant burden using PM2.5, NO2, and O3 values.
+            Lower raw pollution burden corresponds to a higher normalized quality score.
         </p>
         <ul>
-            <li>90-100: Excellent - Minimal health concerns</li>
-            <li>70-89: Good - Acceptable air quality</li>
-            <li>50-69: Moderate - Sensitive groups may be affected</li>
-            <li>30-49: Poor - Health concerns for general population</li>
-            <li>0-29: Very Poor - Serious health risks</li>
+            <li>PM2.5 is used as a fine-particle pollution indicator</li>
+            <li>NO2 reflects traffic and combustion-related pollution burden</li>
+            <li>O3 captures ozone-related air quality conditions</li>
+            <li>The displayed score is normalized to a 0-100 scale</li>
+            <li>Higher values indicate better air quality</li>
+            <li>Typical interpretation: 90-100 excellent, 70-89 good, 50-69 moderate, 30-49 below average, 0-29 needs attention</li>
         </ul>
     </div>
 
     <div class="metric-box" style="--accent: var(--water)">
-        <h3 style="color: var(--water)">Drinking Water Safety</h3>
+        <h3 style="color: var(--water)">Drinking Water</h3>
         <p>
-            Combines NYC DEP water quality reports, lead testing results, and infrastructure
-            age. Factors include:
+            Drinking water quality starts from site-level monitoring records and is spatially assigned
+            into community districts before being rolled up into the app's geographic views.
         </p>
         <ul>
-            <li>Bacterial contamination levels</li>
-            <li>Lead and heavy metal concentrations</li>
-            <li>Chlorine and disinfection byproducts</li>
-            <li>Water main age and replacement rates</li>
-            <li>Complaint frequency and resolution</li>
+            <li>Residual free chlorine</li>
+            <li>Turbidity</li>
+            <li>Fluoride</li>
+            <li>Coliform-related indicators where available</li>
+            <li>Area-level rollups preserve sample-site count context</li>
+            <li>The displayed score is normalized to a 0-100 scale</li>
+            <li>Higher values indicate better drinking water quality</li>
+            <li>Typical interpretation: 90-100 excellent, 70-89 good, 50-69 moderate, 30-49 below average, 0-29 needs attention</li>
         </ul>
     </div>
 
     <div class="metric-box" style="--accent: var(--edu)">
         <h3 style="color: var(--edu)">Education Quality</h3>
         <p>
-            Aggregates NYC Department of Education data including:
+            Education quality starts from school-level results and is aggregated into community-district scores
+            before being reused across the map's larger or alternate geography views.
         </p>
         <ul>
-            <li>Average standardized test scores (Math & ELA)</li>
-            <li>High school graduation rates</li>
-            <li>College readiness indicators</li>
-            <li>Student-teacher ratios</li>
-            <li>School funding per student</li>
-            <li>Advanced course availability</li>
+            <li>School-level education quality inputs</li>
+            <li>Spatial assignment of schools to districts</li>
+            <li>Average area-level education scoring</li>
+            <li>School counts remain visible in the detail views</li>
+            <li>The displayed score is normalized to a 0-100 scale</li>
+            <li>Higher values indicate better education quality</li>
+            <li>Typical interpretation: 90-100 excellent, 70-89 good, 50-69 moderate, 30-49 below average, 0-29 needs attention</li>
         </ul>
     </div>
 
     <div class="metric-box" style="--accent: var(--nypd)">
-        <h3 style="color: var(--nypd)">NYPD Complaint Index</h3>
+        <h3 style="color: var(--nypd)">Public Safety Score</h3>
         <p>
-            Derived from NYPD complaint data, measuring public safety through:
+            Public safety is derived from NYPD complaint data using a severity-weighted incident framework.
         </p>
         <ul>
-            <li>Total complaint volume per 1,000 residents</li>
-            <li>Complaint type severity weighting</li>
-            <li>Response time averages</li>
-            <li>Resolution rates</li>
-            <li>Year-over-year trend analysis</li>
+            <li>Complaint severity weighting by incident type</li>
+            <li>Weighted incident burden totals</li>
+            <li>Area-level incident counts</li>
+            <li>Normalization to a 0-100 quality score</li>
+            <li>Higher values indicate better public safety conditions</li>
+            <li>Typical interpretation: 90-100 excellent, 70-89 good, 50-69 moderate, 30-49 below average, 0-29 needs attention</li>
         </ul>
         <p>
-            <em>Note: Higher scores indicate fewer complaints and better public safety conditions.</em>
+            <em>Higher scores indicate fewer or less severe complaint burdens and therefore better public safety conditions.</em>
         </p>
     </div>
 
-    <h3 style="color: var(--overall)">Overall Score Calculation</h3>
-    <div class="code-block">
-        Overall Score = (Air Quality + Water Safety + Education + NYPD) / 4
-    </div>
+    <h2>Geography Views</h2>
     <p>
-        The overall score provides a holistic view of neighborhood quality, giving equal
-        weight to each metric. Users can also view and filter by individual metrics to
-        prioritize what matters most to them.
+        The app now supports multiple ways to view the same prototype score system:
+    </p>
+    <ul>
+        <li><strong>Community District:</strong> the core geography where the prototype scores are built directly</li>
+        <li><strong>Borough:</strong> borough-level rollups from the community-district scores</li>
+        <li><strong>ZIP Code:</strong> area-weighted rollups onto modified ZIP code tabulation areas</li>
+        <li><strong>Neighborhood:</strong> area-weighted rollups onto NYC Neighborhood Tabulation Areas (NTAs)</li>
+    </ul>
+    <p>
+        This lets users compare the same quality framework at different spatial resolutions depending on whether
+        they want a planning-district view, a borough overview, a ZIP-level view, or an official neighborhood-style view.
+    </p>
+
+    <h2>How To Read The Scores</h2>
+    <p>
+        Every map view uses the same basic interpretation: higher normalized values indicate better relative conditions
+        within the current prototype. The interface also exposes supporting context such as rank, sample-site count,
+        school count, incident count, and weighted severity burden where relevant.
     </p>
 
     <h2>Data Sources</h2>
     <p>All data is sourced from official New York City agencies and public datasets:</p>
     <ul>
-        <li><strong>Air Quality:</strong> EPA AirNow & NYC Department of Health</li>
+        <li><strong>Air Quality:</strong> NYC Open Data air quality measurements</li>
         <li><strong>Water Safety:</strong> NYC Department of Environmental Protection (DEP)</li>
         <li><strong>Education:</strong> NYC Department of Education Open Data</li>
         <li><strong>Public Safety:</strong> NYPD Complaint Data (NYC Open Data)</li>
