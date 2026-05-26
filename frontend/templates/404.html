@@ -15,6 +15,7 @@
         <ul class="nav-links">
             <li><a href="{{ url_for('index') }}">Home</a></li>
             <li><a href="{{ url_for('map_page') }}">Explore Map</a></li>
+            <li><a href="{{ url_for('results_page') }}">Results</a></li>
             <li><a href="{{ url_for('about') }}">About</a></li>
         </ul>
     </div>
@@ -23,7 +24,7 @@
 <div class="container" style="text-align: center; padding: 120px 24px;">
     <h1 style="font-size: 120px; margin-bottom: 20px;">404</h1>
     <h2 style="margin-bottom: 20px;">Neighborhood Not Found</h2>
-    <p style="margin-bottom: 40px;">The zip code you're looking for doesn't exist in our database.</p>
+    <p style="margin-bottom: 40px;">The community district you're looking for doesn't exist in our database.</p>
     <a href="{{ url_for('map_page') }}" class="cta-button">Explore the Map</a>
 </div>
 

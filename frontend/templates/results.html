@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Results - NYC Quality Index</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;700&family=DM+Sans:wght@300;400;500;700&display=swap"
+          rel="stylesheet"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<nav class="nav">
+    <div class="nav-container">
+        <div class="logo">NYC Quality Index</div>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('map_page') }}">Explore Map</a></li>
+            <li><a href="{{ url_for('results_page') }}">Results</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container results-page">
+    <section class="results-hero">
+        <div class="results-kicker">Results Overview</div>
+        <h1>Community District Results</h1>
+        <p class="intro">
+            This dashboard summarizes the official NYC Quality Index results at the community-district level with
+            rankings, score distributions, borough context, category-by-category performance, and deeper comparisons
+            across air quality, drinking water, education, and public safety.
+        </p>
+    </section>
+
+    <section class="results-summary-grid">
+        {% for card in summary_cards %}
+        <div class="results-card results-card-{{ card.accent }}">
+            <div class="results-card-label">{{ card.label }}</div>
+            <div class="results-card-value">{{ card.value }}</div>
+            <p class="results-card-detail">{{ card.detail }}</p>
+        </div>
+        {% endfor %}
+    </section>
+
+    <section class="results-section">
+        <div class="results-section-header">
+            <h2>Overall Results</h2>
+            <p>Citywide overall performance is shown here through rank-based leaderboards and score distributions.</p>
+        </div>
+        <div class="results-chart-grid">
+            <div class="results-panel">
+                <div class="results-panel-header">
+                    <h3 style="color: var(--air)">Top 10 Overall</h3>
+                    <span class="results-panel-note">Highest scoring districts</span>
+                </div>
+                <div class="chart-wrap chart-wrap-lg">
+                    <canvas id="topOverallChart"></canvas>
+                </div>
+            </div>
+            <div class="results-panel">
+                <div class="results-panel-header">
+                    <h3 style="color: var(--nypd)">Bottom 10 Overall</h3>
+                    <span class="results-panel-note">Lowest scoring districts</span>
+                </div>
+                <div class="chart-wrap chart-wrap-lg">
+                    <canvas id="bottomOverallChart"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="results-chart-grid results-chart-grid-secondary">
+            <div class="results-panel">
+                <div class="results-panel-header">
+                    <h3 style="color: var(--overall)">Overall Score Distribution</h3>
+                    <span class="results-panel-note">How scores spread across all 59 districts</span>
+                </div>
+                <div class="chart-wrap">
+                    <canvas id="overallDistributionChart"></canvas>
+                </div>
+            </div>
+            <div class="results-panel">
+                <div class="results-panel-header">
+                    <h3 style="color: var(--water)">Borough Averages</h3>
+                    <span class="results-panel-note">Average overall score by borough</span>
+                </div>
+                <div class="chart-wrap">
+                    <canvas id="boroughAverageChart"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="results-chart-grid results-chart-grid-secondary">
+            <div class="results-panel">
+                <div class="results-panel-header">
+                    <h3 style="color: var(--overall)">Ranked Score Curve</h3>
+                    <span class="results-panel-note">How quickly overall scores fall from rank 1 to rank 59</span>
+                </div>
+                <div class="chart-wrap chart-wrap-md">
+                    <canvas id="rankCurveChart"></canvas>
+                </div>
+            </div>
+            <div class="results-panel">
+                <div class="results-panel-header">
+                    <h3 style="color: var(--edu)">Overall Score Vs Balance</h3>
+                    <span class="results-panel-note">Higher score plus lower metric range is the sweet spot</span>
+                </div>
+                <div class="chart-wrap chart-wrap-md">
+                    <canvas id="overallBalanceScatterChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="results-section">
+        <div class="results-section-header">
+            <h2>Metric-By-Metric Analysis</h2>
+            <p>Each category gets both summary context and its own chart so we can see where the city is strongest, weakest, and most uneven.</p>
+        </div>
+        <div class="results-metric-grid">
+            {% for metric in metric_summaries %}
+            <div class="metric-box results-metric-card">
+                <div class="results-panel-header">
+                    <h3 style="color: {{ metric.color_var }}">{{ metric.label }}</h3>
+                    <span class="results-panel-note">Citywide average {{ '%.2f'|format(metric.average) }}</span>
+                </div>
+                <div class="results-metric-stat">
+                    <span>Top district</span>
+                    <strong>{{ metric.top_name }} ({{ '%.2f'|format(metric.top_score) }})</strong>
+                </div>
+                <div class="results-metric-stat">
+                    <span>Bottom district</span>
+                    <strong>{{ metric.bottom_name }} ({{ '%.2f'|format(metric.bottom_score) }})</strong>
+                </div>
+                <div class="chart-wrap chart-wrap-sm">
+                    <canvas id="metricChart{{ loop.index }}"></canvas>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="results-section">
+        <div class="results-section-header">
+            <h2>District Comparison Explorer</h2>
+            <p>Use one or two district selections to compare full metric profiles, overall strength, and where a district is balanced or uneven.</p>
+        </div>
+        <div class="results-panel results-comparison-panel">
+            <div class="results-controls">
+                <label class="results-control">
+                    <span>District A</span>
+                    <select id="districtSelectA"></select>
+                </label>
+                <label class="results-control">
+                    <span>District B</span>
+                    <select id="districtSelectB"></select>
+                </label>
+            </div>
+            <div class="results-chart-grid results-chart-grid-secondary">
+                <div class="chart-wrap">
+                    <canvas id="districtRadarChart"></canvas>
+                </div>
+                <div class="chart-wrap">
+                    <canvas id="districtGroupedChart"></canvas>
+                </div>
+            </div>
+            <div class="results-comparison-cards">
+                <div class="results-compare-card" id="compareCardA"></div>
+                <div class="results-compare-card" id="compareCardB"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="results-section">
+        <div class="results-section-header">
+            <h2>Variation And Findings</h2>
+            <p>This section highlights which metrics vary most citywide and which districts are the most balanced or uneven across the four categories.</p>
+        </div>
+        <div class="results-chart-grid results-chart-grid-secondary">
+            <div class="results-panel">
+                <div class="results-panel-header">
+                    <h3 style="color: var(--overall)">Metric Variability</h3>
+                    <span class="results-panel-note">Higher standard deviation means more district-to-district spread</span>
+                </div>
+                <div class="chart-wrap">
+                    <canvas id="metricVariabilityChart"></canvas>
+                </div>
+            </div>
+            <div class="results-panel">
+                <div class="results-panel-header">
+                    <h3 style="color: var(--edu)">Balance Versus Unevenness</h3>
+                    <span class="results-panel-note">Small metric ranges indicate more balanced performance</span>
+                </div>
+                <div class="results-balance-grid">
+                    <div>
+                        <div class="results-mini-title">Most Balanced</div>
+                        <div class="results-mini-list">
+                            {% for row in balanced_top5 %}
+                            <div class="results-mini-row">
+                                <span>{{ row.name }}</span>
+                                <strong>{{ '%.2f'|format(row.metric_range) }}</strong>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div>
+                        <div class="results-mini-title">Most Uneven</div>
+                        <div class="results-mini-list">
+                            {% for row in uneven_top5 %}
+                            <div class="results-mini-row">
+                                <span>{{ row.name }}</span>
+                                <strong>{{ '%.2f'|format(row.metric_range) }}</strong>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="features-grid results-findings-grid">
+            {% for finding in key_findings %}
+            <div class="feature results-finding">
+                <h3>{{ finding.title }}</h3>
+                <p>{{ finding.body }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2026 NYC Quality Index. Data sourced from NYC Open Data.</p>
+</footer>
+
+<script>
+    window.RESULTS_DATA = {{ results_payload | tojson }};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+<script src="{{ url_for('static', filename='results.js') }}"></script>
+</body>
+</html>

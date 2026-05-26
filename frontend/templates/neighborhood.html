@@ -15,6 +15,7 @@
         <ul class="nav-links">
             <li><a href="{{ url_for('index') }}">Home</a></li>
             <li><a href="{{ url_for('map_page') }}">Explore Map</a></li>
+            <li><a href="{{ url_for('results_page') }}">Results</a></li>
             <li><a href="{{ url_for('about') }}">About</a></li>
         </ul>
     </div>
@@ -27,8 +28,8 @@
         <div class="breadcrumb">
             <a href="{{ url_for('map_page') }}">Map</a> / <span id="breadcrumbNeighborhood">Loading...</span>
         </div>
-        <h1 class="zip-title" id="zipCode">{{ zip_code }}</h1>
-        <div class="neighborhood-name" id="neighborhoodName">Loading neighborhood...</div>
+        <h1 class="zip-title" id="districtCode">{{ district_id }}</h1>
+        <div class="neighborhood-name" id="neighborhoodName">Loading community district...</div>
         <div class="overall-badge">
             Overall Score: <span class="overall-score-lg" id="overallScore">—</span>
         </div>
@@ -61,7 +62,7 @@
                         </div>
                     </div>
                     <div class="metric-item" style="--metric-color: var(--nypd)">
-                        <div class="metric-name">NYPD Complaints</div>
+                        <div class="metric-name">Public Safety</div>
                         <div class="metric-value" id="nypdValue">—</div>
                         <div class="metric-bar-wrap">
                             <div class="metric-bar-fill" id="nypdBar"></div>
@@ -71,44 +72,54 @@
             </div>
 
             <div class="section">
-                <h2 class="section-title">Neighborhood Overview</h2>
+                <h2 class="section-title">District Summary</h2>
+                <div class="info-row">
+                    <span class="info-label">Community District</span>
+                    <span class="info-value" id="districtInfo">CD 1-01</span>
+                </div>
                 <div class="info-row">
                     <span class="info-label">Borough</span>
                     <span class="info-value" id="boroughInfo">Manhattan</span>
                 </div>
                 <div class="info-row">
-                    <span class="info-label">Population (est.)</span>
-                    <span class="info-value" id="populationInfo">~45,000</span>
+                    <span class="info-label">Overall Rank</span>
+                    <span class="info-value" id="rankInfo">#—</span>
                 </div>
                 <div class="info-row">
-                    <span class="info-label">Area</span>
-                    <span class="info-value" id="areaInfo">2.3 sq mi</span>
+                    <span class="info-label">Water Sample Sites</span>
+                    <span class="info-value" id="waterCoverageInfo">—</span>
                 </div>
                 <div class="info-row">
-                    <span class="info-label">Median Income</span>
-                    <span class="info-value" id="incomeInfo">$85,000</span>
+                    <span class="info-label">Schools Aggregated</span>
+                    <span class="info-value" id="schoolCoverageInfo">—</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Safety Incidents Counted</span>
+                    <span class="info-value" id="incidentInfo">—</span>
                 </div>
             </div>
         </div>
 
         <div class="sidebar">
-            <div class="real-estate">
+            <div class="real-estate" id="rentalsSection">
                 <div class="real-estate-header">
                     <h2 class="section-title" style="margin-bottom: 0;">Available Rentals</h2>
                 </div>
                 <div id="listingsContainer">
                     <!-- Listings will be loaded dynamically -->
                 </div>
-                <button class="view-all-btn" id="viewAllListingsBtn">
-                    View All Listings on StreetEasy
-                </button>
+                <div class="rental-provider-actions">
+                    <button class="view-all-btn" id="apartmentsBtn">Search on Apartments.com</button>
+                    <button class="view-all-btn" id="zillowBtn">Search on Zillow</button>
+                    <button class="view-all-btn" id="streetEasyBtn">Search on StreetEasy</button>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 <script>
-    const ZIP_CODE = '{{ zip_code }}';
+    const DISTRICT_ID = '{{ district_id }}';
 </script>
 <script src="{{ url_for('static', filename='neighborhood.js') }}"></script>
 </body>

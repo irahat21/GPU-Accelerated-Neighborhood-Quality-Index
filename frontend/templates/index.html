@@ -15,6 +15,7 @@
         <ul class="nav-links">
             <li><a href="{{ url_for('index') }}">Home</a></li>
             <li><a href="{{ url_for('map_page') }}">Explore Map</a></li>
+            <li><a href="{{ url_for('results_page') }}">Results</a></li>
             <li><a href="{{ url_for('about') }}">About</a></li>
         </ul>
     </div>
@@ -29,9 +30,9 @@
         <span style="background: var(--overall); background-clip: text;">Neighborhood</span>
     </h1>
     <p class="hero-subtitle">
-        Explore comprehensive quality scores for every NYC zip code.
-        Compare air quality, water safety, education, and public safety
-        to make informed decisions about where to live.
+        Explore community-district quality scores across New York City.
+        Compare air quality, drinking water, education, and public safety
+        using a unified Neighborhood Quality Index built from official datasets.
     </p>
     <a href="{{ url_for('map_page') }}" class="cta-button">Explore the Map</a>
 </section>
@@ -40,22 +41,22 @@
     <div class="metric-card" style="--accent: var(--air)">
         <div class="metric-icon" style="background: var(--air)"></div>
         <h3 style="color: var(--air)">Air Quality</h3>
-        <p>Real-time air quality index tracking pollution levels across all neighborhoods</p>
+        <p>Community-district air quality scores based on pollutant burden and monitored conditions.</p>
     </div>
     <div class="metric-card" style="--accent: var(--water)">
         <div class="metric-icon" style="background: var(--water)"></div>
         <h3 style="color: var(--water)">Drinking Water</h3>
-        <p>Water safety ratings based on contamination tests and infrastructure quality</p>
+        <p>District-level drinking water quality scores derived from sampled-site monitoring data.</p>
     </div>
     <div class="metric-card" style="--accent: var(--edu)">
         <div class="metric-icon" style="background: var(--edu)"></div>
         <h3 style="color: var(--edu)">Education</h3>
-        <p>School performance metrics, graduation rates, and educational resources</p>
+        <p>Education scores aggregated from school-level quality results into a district-wide view.</p>
     </div>
     <div class="metric-card" style="--accent: var(--nypd)">
         <div class="metric-icon" style="background: var(--nypd)"></div>
-        <h3 style="color: var(--nypd)">NYPD Complaints</h3>
-        <p>Public safety scores based on complaint frequency and resolution rates</p>
+        <h3 style="color: var(--nypd)">Public Safety</h3>
+        <p>Safety scores built from severity-weighted NYPD complaint activity by community district.</p>
     </div>
 </div>
 
@@ -65,15 +66,15 @@
         <div class="feature">
             <h3>Interactive Map</h3>
             <p>
-                Visualize quality scores with color-coded zip codes.
-                Hover for instant details, click to pin neighborhoods for deeper analysis.
+                Visualize quality scores with color-coded community districts.
+                Hover for instant details, then click to pin a district for deeper analysis.
             </p>
         </div>
         <div class="feature">
-            <h3>Compare Neighborhoods</h3>
+            <h3>Compare Districts</h3>
             <p>
-                Select up to two neighborhoods to compare side-by-side.
-                See which area excels in the metrics that matter most to you.
+                Select up to two community districts to compare side-by-side.
+                See which area performs better in the metrics that matter most to you.
             </p>
         </div>
         <div class="feature">
@@ -86,8 +87,8 @@
         <div class="feature">
             <h3>Detailed Profiles</h3>
             <p>
-                Access comprehensive neighborhood profiles with historical trends,
-                demographics, and local insights.
+                Access district profiles with metric summaries, raw score context,
+                and links to drill deeper into each area.
             </p>
         </div>
         <div class="feature">
@@ -100,8 +101,8 @@
         <div class="feature">
             <h3>Data-Driven</h3>
             <p>
-                All scores based on official NYC data sources, updated regularly
-                to reflect current conditions.
+                All scores are derived from official NYC datasets and normalized
+                into a consistent 0-100 scale for comparison.
             </p>
         </div>
     </div>
@@ -110,8 +111,8 @@
 <div class="stats">
     <div class="stats-grid">
         <div>
-            <div class="stat-number">180+</div>
-            <div class="stat-label">Zip Codes Tracked</div>
+            <div class="stat-number">59</div>
+            <div class="stat-label">Community Districts</div>
         </div>
         <div>
             <div class="stat-number">4</div>
