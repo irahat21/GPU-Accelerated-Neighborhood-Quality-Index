@@ -4,7 +4,7 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Neighborhood Profile - NYC Quality Index</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;700&family=DM+Sans:wght@300;400;500;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;700&family=DM+Sans:wght@300;400;500;700;800&display=swap"
           rel="stylesheet"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
@@ -22,96 +22,185 @@
 </nav>
 
 <div class="container">
-    <a href="{{ url_for('map_page') }}" class="back-link">← Back to Map</a>
+    <a href="{{ url_for('map_page') }}" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Back to Map
+    </a>
 
-    <div class="header">
-        <div class="breadcrumb">
-            <a href="{{ url_for('map_page') }}">Map</a> / <span id="breadcrumbNeighborhood">Loading...</span>
-        </div>
-        <h1 class="zip-title" id="districtCode">{{ district_id }}</h1>
-        <div class="neighborhood-name" id="neighborhoodName">Loading community district...</div>
-        <div class="overall-badge">
-            Overall Score: <span class="overall-score-lg" id="overallScore">—</span>
+    <div class="neighborhood-hero">
+        <div class="hero-badge" id="neighborhoodBadge">Loading...</div>
+        <div class="hero-title-row">
+            <h1 class="neighborhood-title" id="districtCode">{{ district_id }}</h1>
+            <div class="neighborhood-subtitle" id="neighborhoodName">Loading community district...</div>
+            <div class="overall-score-hero">
+                <span class="overall-label">Quality Index</span>
+                <span class="overall-number" id="overallScore">—</span>
+            </div>
         </div>
     </div>
 
     <div class="content-grid">
         <div class="main-content">
-            <div class="section">
-                <h2 class="section-title">Quality Metrics</h2>
-                <div class="metrics-grid-small">
-                    <div class="metric-item" style="--metric-color: var(--air)">
-                        <div class="metric-name">Air Quality</div>
-                        <div class="metric-value" id="airValue">—</div>
-                        <div class="metric-bar-wrap">
-                            <div class="metric-bar-fill" id="airBar"></div>
+            <!-- Quality Metrics Section -->
+            <div class="section metrics-section">
+                <div class="section-header">
+                    <h2 class="section-title" style="margin-top: 0px;">Quality Metrics</h2>
+                    <p class="section-subtitle">Performance indicators across key dimensions</p>
+                </div>
+                <div class="metrics-grid-neighborhood">
+                    <div class="metric-card" data-metric="air">
+                        <div class="metric-icon air-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                 stroke-width="1.5">
+                                <path d="M12 2a10 10 0 1 0 10 10 10 10 0 0 0-10-10z"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                        </div>
+                        <div class="metric-info">
+                            <span class="metric-name">Air Quality</span>
+                            <span class="metric-value" id="airValue">—</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="airBar"></div>
                         </div>
                     </div>
-                    <div class="metric-item" style="--metric-color: var(--water)">
-                        <div class="metric-name">Drinking Water</div>
-                        <div class="metric-value" id="waterValue">—</div>
-                        <div class="metric-bar-wrap">
-                            <div class="metric-bar-fill" id="waterBar"></div>
+                    <div class="metric-card" data-metric="water">
+                        <div class="metric-icon water-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                 stroke-width="1.5">
+                                <path d="M12 2v4M12 18v4M4 12H2M22 12h-2M19.07 4.93l-2.83 2.83M7.76 16.24l-2.83 2.83M16.24 16.24l2.83 2.83M7.76 7.76L4.93 4.93"/>
+                                <circle cx="12" cy="12" r="4"/>
+                            </svg>
+                        </div>
+                        <div class="metric-info">
+                            <span class="metric-name">Drinking Water</span>
+                            <span class="metric-value" id="waterValue">—</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="waterBar"></div>
                         </div>
                     </div>
-                    <div class="metric-item" style="--metric-color: var(--edu)">
-                        <div class="metric-name">Education</div>
-                        <div class="metric-value" id="eduValue">—</div>
-                        <div class="metric-bar-wrap">
-                            <div class="metric-bar-fill" id="eduBar"></div>
+                    <div class="metric-card" data-metric="edu">
+                        <div class="metric-icon edu-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                 stroke-width="1.5">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <div class="metric-info">
+                            <span class="metric-name">Education</span>
+                            <span class="metric-value" id="eduValue">—</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="eduBar"></div>
                         </div>
                     </div>
-                    <div class="metric-item" style="--metric-color: var(--nypd)">
-                        <div class="metric-name">Public Safety</div>
-                        <div class="metric-value" id="nypdValue">—</div>
-                        <div class="metric-bar-wrap">
-                            <div class="metric-bar-fill" id="nypdBar"></div>
+                    <div class="metric-card" data-metric="safety">
+                        <div class="metric-icon safety-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                 stroke-width="1.5">
+                                <path d="M12 2L3 7l9 5 9-5-9-5z"/>
+                                <path d="M3 12l9 5 9-5"/>
+                                <path d="M12 22V17"/>
+                                <path d="M12 7v5"/>
+                            </svg>
+                        </div>
+                        <div class="metric-info">
+                            <span class="metric-name">Public Safety</span>
+                            <span class="metric-value" id="nypdValue">—</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="nypdBar"></div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="section">
-                <h2 class="section-title">District Summary</h2>
-                <div class="info-row">
-                    <span class="info-label">Community District</span>
-                    <span class="info-value" id="districtInfo">CD 1-01</span>
+            <!-- District Summary Section -->
+            <div class="section summary-section">
+                <div class="section-header">
+                    <h2 class="section-title">District Summary</h2>
+                    <p class="section-subtitle">Key statistics and coverage information</p>
                 </div>
-                <div class="info-row">
-                    <span class="info-label">Borough</span>
-                    <span class="info-value" id="boroughInfo">Manhattan</span>
-                </div>
-                <div class="info-row">
-                    <span class="info-label">Overall Rank</span>
-                    <span class="info-value" id="rankInfo">#—</span>
-                </div>
-                <div class="info-row">
-                    <span class="info-label">Water Sample Sites</span>
-                    <span class="info-value" id="waterCoverageInfo">—</span>
-                </div>
-                <div class="info-row">
-                    <span class="info-label">Schools Aggregated</span>
-                    <span class="info-value" id="schoolCoverageInfo">—</span>
-                </div>
-                <div class="info-row">
-                    <span class="info-label">Safety Incidents Counted</span>
-                    <span class="info-value" id="incidentInfo">—</span>
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <span class="summary-label">Community District</span>
+                        <span class="summary-value" id="districtInfo">CD 1-01</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Borough</span>
+                        <span class="summary-value" id="boroughInfo">Manhattan</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Overall Rank</span>
+                        <span class="summary-value highlight" id="rankInfo">#—</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Water Sample Sites</span>
+                        <span class="summary-value" id="waterCoverageInfo">—</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Schools Aggregated</span>
+                        <span class="summary-value" id="schoolCoverageInfo">—</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Safety Incidents</span>
+                        <span class="summary-value" id="incidentInfo">—</span>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="sidebar">
-            <div class="real-estate" id="rentalsSection">
-                <div class="real-estate-header">
-                    <h2 class="section-title" style="margin-bottom: 0;">Available Rentals</h2>
+            <div class="rental-card" id="rentalsSection">
+                <div class="rental-card-header">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                         stroke-width="1.5">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                    </svg>
+                    <h2 class="rental-card-title">Find Rentals</h2>
                 </div>
-                <div id="listingsContainer">
-                    <!-- Listings will be loaded dynamically -->
+                <div class="rental-card-content">
+                    <p class="rental-description">Search for apartments and rental properties in this neighborhood</p>
                 </div>
-                <div class="rental-provider-actions">
-                    <button class="view-all-btn" id="apartmentsBtn">Search on Apartments.com</button>
-                    <button class="view-all-btn" id="zillowBtn">Search on Zillow</button>
-                    <button class="view-all-btn" id="streetEasyBtn">Search on StreetEasy</button>
+                <div class="rental-buttons">
+                    <button class="rental-platform-btn apartments" id="apartmentsBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                             stroke-width="2">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                        </svg>
+                        Apartments.com
+                    </button>
+                    <button class="rental-platform-btn zillow" id="zillowBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                             stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2h-5v-8H9v8H5a2 2 0 0 1-2-2z"/>
+                        </svg>
+                        Zillow
+                    </button>
+                    <button class="rental-platform-btn streeteasy" id="streetEasyBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                             stroke-width="2">
+                            <path d="M12 2a10 10 0 1 0 10 10 10 10 0 0 0-10-10z"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                        StreetEasy
+                    </button>
+                    <button class="rental-platform-btn trulia" id="truliaBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                             stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                        Trulia
+                    </button>
                 </div>
             </div>
         </div>

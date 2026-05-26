@@ -14,8 +14,26 @@ function cleanRentalAreaName(name) {
 
 function buildProviderSearchUrl(name, domain) {
     const area = cleanRentalAreaName(name);
-    const query = `site:${domain} ${area} apartments for rent NYC`;
-    return `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+    let searchQuery = "";
+
+    switch(domain) {
+        case "apartments.com":
+            searchQuery = `${area} NYC apartments for rent site:apartments.com`;
+            break;
+        case "zillow.com":
+            searchQuery = `${area} NYC rentals site:zillow.com`;
+            break;
+        case "streeteasy.com":
+            searchQuery = `${area} NYC apartments site:streeteasy.com`;
+            break;
+        case "trulia.com":
+            searchQuery = `${area} NYC rentals site:trulia.com`;
+            break;
+        default:
+            searchQuery = `${area} apartments for rent NYC site:${domain}`;
+    }
+
+    return `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`;
 }
 
 function openRentalSearch(name, domain = "apartments.com") {
@@ -33,77 +51,154 @@ async function loadNeighborhoodData() {
             return;
         }
 
-        document.getElementById("districtCode").textContent = formatDistrictLabel(districtId);
-        document.getElementById("neighborhoodName").textContent = data.name;
-        document.getElementById("breadcrumbNeighborhood").textContent = data.name;
-        document.getElementById("overallScore").textContent = Math.round(data.overall);
+        // Update hero section
+        const neighborhoodBadge = document.getElementById("neighborhoodBadge");
+        if (neighborhoodBadge) {
+            neighborhoodBadge.textContent = data.borough || "Community District";
+        }
 
+        const districtCodeEl = document.getElementById("districtCode");
+        if (districtCodeEl) {
+            districtCodeEl.textContent = formatDistrictLabel(districtId);
+        }
+
+        const neighborhoodNameEl = document.getElementById("neighborhoodName");
+        if (neighborhoodNameEl) {
+            neighborhoodNameEl.textContent = data.name;
+        }
+
+        const overallScoreEl = document.getElementById("overallScore");
+        if (overallScoreEl) {
+            overallScoreEl.textContent = Math.round(data.overall);
+        }
+
+        // Update metrics
         const metrics = ["air", "water", "edu", "nypd"];
         metrics.forEach(m => {
             const value = Math.round(data[m]);
-            document.getElementById(`${m}Value`).textContent = value;
-            document.getElementById(`${m}Bar`).style.width = `${value}%`;
+            const valueEl = document.getElementById(`${m}Value`);
+            const barEl = document.getElementById(`${m}Bar`);
+
+            if (valueEl) valueEl.textContent = value;
+            if (barEl) {
+                setTimeout(() => {
+                    barEl.style.width = `${value}%`;
+                }, 100);
+            }
         });
 
-        document.getElementById("districtInfo").textContent = formatDistrictLabel(districtId);
-        document.getElementById("boroughInfo").textContent = data.borough;
-        document.getElementById("rankInfo").textContent = `#${data.details?.overall?.rank ?? "—"}`;
-        document.getElementById("waterCoverageInfo").textContent = data.details?.water?.sample_sites ?? "—";
-        document.getElementById("schoolCoverageInfo").textContent = data.details?.edu?.schools ?? "—";
-        const incidentCount = data.details?.nypd?.incidents;
-        document.getElementById("incidentInfo").textContent = typeof incidentCount === "number"
-            ? incidentCount.toLocaleString()
-            : "—";
+        // Update summary section
+        const districtInfoEl = document.getElementById("districtInfo");
+        if (districtInfoEl) districtInfoEl.textContent = formatDistrictLabel(districtId);
 
-        await loadRentalListings(districtId, data.name);
+        const boroughInfoEl = document.getElementById("boroughInfo");
+        if (boroughInfoEl) boroughInfoEl.textContent = data.borough || "—";
+
+        const rankInfoEl = document.getElementById("rankInfo");
+        if (rankInfoEl) rankInfoEl.textContent = `#${data.details?.overall?.rank ?? "—"}`;
+
+        const waterCoverageEl = document.getElementById("waterCoverageInfo");
+        if (waterCoverageEl) waterCoverageEl.textContent = data.details?.water?.sample_sites ?? "—";
+
+        const schoolCoverageEl = document.getElementById("schoolCoverageInfo");
+        if (schoolCoverageEl) schoolCoverageEl.textContent = data.details?.edu?.schools ?? "—";
+
+        const incidentCount = data.details?.nypd?.incidents;
+        const incidentInfoEl = document.getElementById("incidentInfo");
+        if (incidentInfoEl) {
+            incidentInfoEl.textContent = typeof incidentCount === "number"
+                ? incidentCount.toLocaleString()
+                : "—";
+        }
 
     } catch (err) {
         console.error("Error loading data:", err);
-        document.getElementById("neighborhoodName").textContent = "Error loading data";
-    }
-}
-
-async function loadRentalListings(id, name) {
-    try {
-        const response = await fetch(`/api/listings/${id}`);
-        const sampleListings = await response.json();
-
-        const container = document.getElementById("listingsContainer");
-        if (!container) return;
-
-        container.innerHTML = sampleListings.map(listing => `
-            <div class="listing rentals-search-card" data-rental-area="${name}">
-                <div class="listing-price">${listing.price}/mo</div>
-                <div class="listing-details">${listing.beds} bed • ${listing.baths} bath • ${listing.sqft} sqft</div>
-                <div class="listing-address">${listing.address}</div>
-                <div class="listing-link-hint">Search similar rentals in ${cleanRentalAreaName(name)} on Apartments.com</div>
-            </div>
-        `).join("");
-
-        container.querySelectorAll(".rentals-search-card").forEach(card => {
-            card.addEventListener("click", () => openRentalSearch(card.dataset.rentalArea, "apartments.com"));
-        });
-    } catch (err) {
-        console.error("Error loading listings:", err);
-        const container = document.getElementById("listingsContainer");
-        if (container) {
-            container.innerHTML = '<div style="padding: 20px; text-align: center;">Unable to load listings</div>';
+        const neighborhoodNameEl = document.getElementById("neighborhoodName");
+        if (neighborhoodNameEl) {
+            neighborhoodNameEl.textContent = "Error loading data";
         }
     }
 }
 
 function viewAllListings(domain = "apartments.com") {
-    const name = document.getElementById("neighborhoodName").textContent;
+    const nameEl = document.getElementById("neighborhoodName");
+    const name = nameEl ? nameEl.textContent : "NYC";
     openRentalSearch(name, domain);
+}
+
+function animateProgressBarsOnScroll() {
+    const progressBars = document.querySelectorAll('.progress-fill');
+    const observerOptions = {
+        threshold: 0.3,
+        rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const bar = entry.target;
+                const width = bar.style.width;
+                if (width && width !== '0%') {
+                    observer.unobserve(bar);
+                }
+            }
+        });
+    }, observerOptions);
+
+    progressBars.forEach(bar => observer.observe(bar));
+}
+
+function addMetricCardHints() {
+    const metricCards = document.querySelectorAll('.metric-card');
+    const hints = {
+        air: 'Based on EPA air quality data, including particulate matter and ozone levels',
+        water: 'Based on DEP water quality testing results from sample sites',
+        edu: 'Based on Department of Education school quality reports and ratings',
+        safety: 'Based on NYPD crime incident data and response times'
+    };
+
+    metricCards.forEach(card => {
+        const metricType = card.getAttribute('data-metric');
+        if (metricType && hints[metricType]) {
+            card.setAttribute('title', hints[metricType]);
+        }
+    });
+}
+
+function setupKeyboardNavigation() {
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            // Future modal close functionality
+        }
+    });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     const apartmentsBtn = document.getElementById("apartmentsBtn");
     const zillowBtn = document.getElementById("zillowBtn");
     const streetEasyBtn = document.getElementById("streetEasyBtn");
+    const truliaBtn = document.getElementById("truliaBtn");
+
     if (apartmentsBtn) apartmentsBtn.addEventListener("click", () => viewAllListings("apartments.com"));
     if (zillowBtn) zillowBtn.addEventListener("click", () => viewAllListings("zillow.com"));
     if (streetEasyBtn) streetEasyBtn.addEventListener("click", () => viewAllListings("streeteasy.com"));
+    if (truliaBtn) truliaBtn.addEventListener("click", () => viewAllListings("trulia.com"));
 
     loadNeighborhoodData();
+
+    animateProgressBarsOnScroll();
+    addMetricCardHints();
+    setupKeyboardNavigation();
+
+    const sections = document.querySelectorAll('.section, .rental-card');
+    sections.forEach((section, index) => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(20px)';
+        section.style.transition = `opacity 0.5s ease, transform 0.5s ease`;
+
+        setTimeout(() => {
+            section.style.opacity = '1';
+            section.style.transform = 'translateY(0)';
+        }, 100 + (index * 100));
+    });
 });

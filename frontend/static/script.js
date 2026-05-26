@@ -280,8 +280,7 @@ function renderActions(areaId, data) {
 
     return `
         <div class="action-buttons">
-            <a href="/neighborhood/${areaId}/" class="btn btn-primary read-more-btn">Read More</a>
-            <a href="/neighborhood/${areaId}/#rentalsSection" class="btn btn-secondary rentals-btn">Rentals</a>
+            <a href="/neighborhood/${areaId}/" class="btn btn-primary read-more-btn" style="max-width: 200px;">Read More</a>
         </div>
     `;
 }
