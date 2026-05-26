@@ -50,19 +50,18 @@ body {
 }
 
 .nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
+    margin: 0;
     padding: 0 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
 .logo {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 24px;
     letter-spacing: 1px;
-    color: var(--overall);
 }
 
 .nav-links {
@@ -530,15 +529,15 @@ body {
 }
 
 .hero-title {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'JetBrains Mono', monospace;
     font-size: 72px;
     line-height: 1.1;
-    letter-spacing: 2px;
-    margin-bottom: 24px;
     background: linear-gradient(135deg, var(--overall), var(--air));
-    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
 }
 
 .hero-subtitle {
@@ -1448,4 +1447,10 @@ a {
         padding-bottom: 0;
         margin-bottom: 0;
     }
+}
+
+option {
+    background: rgba(10, 12, 15, 0.92);
+    color: white;
+    border: none;
 }
