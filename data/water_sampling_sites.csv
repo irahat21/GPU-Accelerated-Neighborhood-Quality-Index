@@ -1,0 +1,402 @@
+Sample Site,Sample Station (SS) - Location Description,X - Coordinate,Y - Coordinate
+1S03,"SS - Shaft 3 of City Tunnel No.1 - E/S Goulden Ave, S/O Sedgwick Ave, OPP JPR GH7",1024950,264277
+1S04,"SS - Shaft 4 of City Tunnel No.1 - IFO 2780 Reservoir Ave, E/S Reservoir Ave, 1st SS N/O Strong St (@ intersection of Reservoir Ave & Goulden)",1012568,256577
+1S03A,"SS - Shaft 3A of City Tunnel No.2 - S/S E 233rd St, W/O Bronxwood Ave IFO 862 E 233rd St.",1024721,264392
+1S07,"SS - Shaft 7 of City Tunnel No.1 - NE/S W 167th St, 1st SE/O Sedgwick Ave IFO 1260 Sedgwick Ave",1004013,245233
+1S03B,"SS - Shaft 3B of City Tunnel No.3 - W/S Jerome Ave, S/O access road to Mosholu Golf Course (SW corner of entrance to park)",1014949,260688
+1SCL1,"Jerome Park Reservoir (W205th St & Goulden Ave, Bx) - Croton Distribution Chamber - low pressure service tunnel, Tap in Gatehouse #5, treated water",1013921,259223
+1SCH3,"Jerome Park Reservoir (W205th St & Goulden Ave, Bx) - Croton Distribution Chamber - high pressure service tunnel, Tap #3 in Gatehouse #5, treated water",1013921,259223
+1SCH4,"Jerome Park Reservoir (W205th St & Goulden Ave, Bx) - Croton Distribution Chamber - high pressure service tunnel, Tap in Gatehouse #5, treated water",1013921,259223
+10150,"SS - W/S Zerega Ave, 1st SS S/O Hermany Ave, 12"" OPP NYC Sanitation",1027625,239952
+10250,"SS - W/S Nelson Ave, 1st SS N/O W 168th St (OPP school-1248 Nelson Ave), 12""",1005082,244866
+10550,"SS - W/S Stadium Ave, 1St SS N/O Randolph Pl, 12""",1033944,246040
+10750,"SS - N/S Bartow Ave, 2nd SS W/O Co-op City Blvd, 20""",1031623,256138
+10850,"SS - E/S Riverdale Ave, 1st SS S/O W 260th St (IFO church), OPP 5977 Riverdale Ave, 12""",1010873,270095
+11050,"SS - IFO 1675 W/S University Ave, 2nd SS S/O W 176th St, IFO 1669 University Ave, 12""",1006824,248454
+11150,"SS - IFO 71E N/S E 183rd St, 1st SS W/O Morris Ave, 12""",1011330,251963
+11250,"SS - IFO 925 N/S E Tremont Ave, 1st SS E/O Daly Ave, 20""",1016434,245999
+11350,"SS - W/S Metropolitan Ave, 2nd SS N/O Parkchester Rd (IFO Macy's), 20""",1022677,244011
+11450,"SS - IFO 920 S/S Co - op City Blvd, 2nd SS W/O Dreiser Loop, 20""",1031142,259322
+11550,"SS - IFO 1058 S/S E Gun Hill Rd, 1st SS E/O Hone Ave, 12""",1023792,257836
+11750,"SS - IFO 250 E/S City Island Ave, BTW Carroll & Schofield Sts, 20""",1043521,247419
+11900,"SS - S/S E 177th St, BTW Walton & Morris Aves, 36""",1009464,248889
+12000,"SS - OPP 1540 W/S Jerome Ave, 1st SS S/O Goble Pl, 48""",1007590,246530
+12150,"SS - IFO 963 N/S E 233rd St, 2nd SS W/O Gunther Ave, 12""",1025842,263931
+12250,"SS - OPP 1134 N/S E 225th St, 2nd SS W/O Schieffelin Ave, 12""",1026480,261194
+12550,"SS - IFO 352 S/S E Gun Hill Rd, 1st SS W/O Decatur Ave, 20""",1019445,259431
+13050,"SS - IFO 2431 W/S Eastchester Rd, 2nd SS S/O Mace Ave, 12""",1027551,253340
+13150,"SS - IFO 2805 W/S Grand Concourse, 2nd SS S/O E 197th St, 20""",1014019,255932
+13350,"SS - N/S E Fordham Rd, 1st SS E/O Washington Ave, 20""",1015047,252761
+13550,"SS - IFO 2015 W/S University Ave, 1st SS S/O W 180th St, 12""",1008924,250942
+13600,"SS - E/S Southern Blvd, BTW E 180th & E 181st Sts, 36""",1016282,247551
+13700,"SS - W/S Southern Blvd, BTW Garden & E 182nd Sts, 48""",1016626,248602
+13850,"SS - IFO 1778 E/S Jerome Ave, 1st SS S/O E 176th St, 12""",1008681,248387
+13900,"SS - S/S E 180th St, BTW Webster & Valentine Aves, IFO School 48""",1012181,249738
+14000,"SS - IFO 960 S/S E 156th St, BTW Kelly & Beck Sts, 48""",1012057,236583
+14100,"SS -OPP 1540 W/S Jerome Ave, 2nd SS S/O Goble Pl, 48""",1007582,246514
+14200,"SS - E/S Southern Blvd, BTW E 172nd & E 173rd Sts, OPP 1571 Southern Blvd, 36""",1015030,243659
+14350,"SS - OPP 3748 W/S Third Ave, 1st SS N/O St Paul's Pl, 20""",1011164,243988
+14450,"SS - OPP 958 W/S Gerard Ave, 2nd SS S/O E 164th St, 12""",1005321,241483
+14650,"SS - E/S Concourse Village East, 1st SS N/O E 158th St, 12""",1006655,239592
+14850,"SS - W/S Jackson Ave, 1st SS S/O St Mary's St, 20""",1008919,233877
+14950,"SS - N/S E 135th St, 2nd SS W/O Willis Ave, 12""",1004935,233559
+15050,"SS - W/S Trinity Ave, 2nd SS S/O E 163rd St (IFO school), 16""",1010196,238892
+15150,"SS - IFO 1420 E/S Grand Concourse, 1st SS S/O E 171st St, 12""",1008300,245099
+15250,"SS - IFO 4315 W/S Third Ave, 1st SS N/O E 179th St, 20""",1013358,248845
+15300,"SS - W/S Bailey Ave, BTW W 231st & W 233rd Sts, 48""",1011253,259260
+15450,"SS - IFO 79E N/S East Gun Hill Rd, 1st SS W/O Rochambeau Ave, IFO 83 E. Gun Hill Rd, 20""",1017550,260554
+15550,"SS - IFO 2499 W/S Grand Ave, 1st SS S/O W 190th St, OPP 24-84 Grand Ave 12""",1011297,254171
+16150,"SS - W/S Bronxdale Ave, 2nd SS S/O Rhinelander Ave, 12""",1022864,248301
+16250,"SS - IFO 251 N/S E 204th St, 1st SS E/O Valentine Ave, 12""",1016202,257822
+16450,"SS - IFO 3902 E/S White Plains Rd, 1st SS N/O E 222nd St, 20""",1022580,262068
+16650,"SS - IFO 1541 N/S Westchester Ave, BTW Boynton & Ward Aves,  20""",1018029,241253
+16950,"SS - W/S Westchester Ave, 1st SS N/O St Peters Ave, 20""",1027285,244910
+17050,"SS - IFO 4740 E/S White Plains Rd, 1st SS N/O St Ouen St, 20""",1025828,268839
+17250,"SS - N/S Allerton Ave, 1st SS E/O Throop Ave, 12""",1025509,254616
+17350,"SS - N/S W 232nd St, 1st SS E/O Arlington Ave, 12""",1008514,261350
+17450,"SS - IFO 2548 E/S White Plains Rd, 2nd SS N/O Mace Ave, 20""",1020965,254176
+17550,"SS - IFO 309 N/S E 149th St, 2nd SS W/O Courtlandt Ave, 12""",1006168,236943
+17650,"SS - IFO 1871 N/S Lafayette Ave, 1st SS W/O Underhill Ave, 12""",1022842,238715
+17750,"SS - IFO 835 W/S Hunts Point Ave, 1st SS S/O Gilbert Pl, 12""",1015077,237136
+17950,"SS - W/S Kingsbridge Ave, 1st SS N/O W 232nd St, 12""",1010441,260348
+18000,"SS -S/S of Westbound Bronx & Pelham Pkwy, on Center Median W/O Eastchester Rd, 36""",1026261,251872
+18100,"SS - IFO 2208 S/S Starling Ave, BTW Castle Hill & Glebe Aves, 48""",1025309,244013
+18200,"SS - IFO 653 E/S River Ave, BTW E 150th & E 151st Sts, 36""",1003933,238872
+18300,"SS - E/S Southern Blvd, BTW St Mary's & E 142nd Sts, 36""",1009738,233525
+18450,"SS - W/S West Farms Rd, 2nd SS S/O E 167th St, OPP 1096 West Farms Rd, 12""",1014529,240306
+18500,"SS - S/S E 164th St, BTW River & Gerard Aves, 48""",1005303,241864
+18650,"SS - N/S Dewey Ave, BTW Quincy & Swinton Aves, 12""",1033436,238573
+18750,"SS - IFO 4977 W/S Henry Hudson Pkwy, 2nd SS S/O W 252nd St, 20""",1009639,266491
+18800,"SS - IFO 750 S/S E 169th St, BTW Boston Rd & Tinton Ave, 36""",1011911,242028
+18900,"SS - IFO 3453 W/S Jerome Ave, btw W Gun Hill Rd & E 208th St, 36 inch",1016746,260551
+19000,"SS - IFO 758 S/S E 233rd St, BTW Barnes & Byron Aves, 1st E/O Byron Ave 48""",1024284,264511
+20050,"SS - N/S Ave U, 1st SS W/O E 65th St, 12""",1008686,163991
+20150,"SS - E/S W 23rd St, 1st SS N/O Mermaid Ave, 12""",987006,149279
+20300,"SS - N/S Luquer St, BTW Columbia &  Hicks Sts, 20""",983104,186572
+20350,"SS - OPP 74 S/S Sullivan St, 2nd SS E/O Van Brunt St, 20""",981016,186055
+20650,"SS - W/S 21st Ave, 2nd SS S/O Cropsey Ave, 12""",983827,157189
+20750,"SS - S/S Park Ave, BTW Emerson Pl & Steuben St, 16""",994544,192845
+20850,"SS - E/S Union Ave, 1st SS N/O Frost St, IFO 568 Union Ave, 20""",997523,200731
+20900,"SS - S/S Sands St. BTW Gold St. and Manhattan Brg. Ent. Ramp, OPP 177 Sands St, 48""",988841,194197
+20950,"SS - E/S Clinton St, 2nd SS N/O Pierrepont St, IFO 33 Clinton St, 20""",986528,192665
+21000,"SS - N/S Pacific St, BTW Buffalo & Rochester Aves, 48""",1004547,185738
+21050,"SS - N/S Bergen St, 2nd SS E/O Buffalo Ave, OPP 1770 Bergen St, 12""",1005507,185097
+21100,"SS - S/S Willoughby Ave, BTW Clinton & Vanderbilt Aves, 66""",992926,191199
+21150,"SS - IFO 413 E/S Classon Ave, BTW Greene & Lexington Aves, 20""",995472,189555
+21250,"SS - IFO 747 N/S Lafayette Ave, 2nd SS W/O Throop Ave, 12""",999981,190980
+21350,"SS - IFO 1135 W/S Decatur St, 2nd SS N/O Evergreen Ave, 12""",1009575,189833
+21400,"SS - IFO 312 E/S Jefferson St, BTW Irving & Knickerbocker Aves, 60""",1004792,195987
+21450,"SS - IFO 53 E/S Knickerbocker Ave, 1st SS N/O Grattan St, 20""",1003549,196536
+21550,"SS - E/S Eldert La, 2nd SS N/O Stanley Ave, IFO 943 Eldert Ln, 12""",1022514,182222
+21650,"SS - IFO 307 E/S 7th Ave, 1st SS N/O 8th St, 12""",989547,182489
+21750,"SS - E/S 7th Ave, 1st SS N/O 52nd St, IFO 5115 7th Ave, 12""",982360,172983
+21850,"SS - IFO 37 E/S 7th Ave, 1st SS S/O St Johns Pl, 12""",991434,185676
+21900,"SS - N/S Eastern Pkwy (S/S of svc. Rd), BTW New York & Brooklyn Aves, IFO 645 Eastern Pkwy.  Median BTW Svc & Main 48""",999127,183310
+21950,"SS - IFO 992 W/S Nostrand Ave, 2nd SS S/O Sullivan Pl, 12""",997809,181345
+22050,"SS - IFO 130 E/S Humboldt St, 2nd SS S/O Boerum St, 20""",1000578,196313
+22250,"SS - IFO 9002 W/S Ft Hamilton Pkwy, 1st SS S/O 90th St, 12""",976873,164479
+22300,"SS-E/S 8th Ave BTW 8th & 9th Sts, 72""",990149,181990
+22350,"SS - E/S 5th Ave, BTW 49th St & 50th Sts, IFO 4915 5th Ave, 12""",981481,174383
+22400,"SS - N/S 65 St, BTW 16th & 17th Aves, IFO 1641 65th St, 60""",985983,165686
+22550,"SS - E/S Stillwell Ave, 1st SS N/O Ave S, IFO P.S. 97 OPP 870-86 Stillwell Ave, 20""",988160,158172
+22600,"SS - E/S Ft Hamilton Pkwy, BTW 49th & 50th Sts, OPP 4918 Ft. Hamilton Pkwy, 72""",984776,171711
+22650,"SS - IFO 5601 E/S Ft Hamilton Pkwy, 1st SS S/O E 56th St, IFO 5517 Ft. Hamilton Pkwy, 20""",983494,170583
+22700,"SS - N/S Church Ave, BTW Ocean Pkwy & E 5th St, 48""",991096,174139
+22750,"SS - W/S Dahill Rd, 2nd SS S/O 15th Ave, OPP 339 Dahill Rd, 12""",989834,172129
+22850,"SS - N/S Beverly Rd, 1st SS E/O E 48th St, IFO 4805 Bevery Rd 16""",1003264,174746
+22900,"SS -  W/S Washington Park, BTW Willoughby & Myrtle Aves, OPP 175 Washington Pk, 66""",991547,191369
+22950,"SS - N/S Myrtle Ave, 2nd SS E/O N Portland Ave, 20""",991169,191900
+23000,"SS - E/S Ocean Pkwy (E/S of Svc Rd), BTW Ave H & Ave I, 60""",992358,167967
+23150,"SS - E/S Ocean Pkwy, 2nd SS N/O Ave M, IFO 1257 Ocean Pkwy, 12""",992883,164317
+23200,"SS - N/S Caton Ave, BTW E 18th St & St Pauls Pl, 48""",994430,176630
+23250,"SS - E/S Ocean Ave, 2nd SS S/O Albemarle Rd, 20""",995298,174737
+23350,"SS - W/S Ocean Ave, 2nd SS S/O Ditmas Ave, OPP 985 Ocean Ave, 12""",995651,171892
+23450,"SS - N/S Jefferson Ave, 2nd SS W/O Lewis Ave, OPP 518 Jefferson Ave,  20""",1001705,188791
+23550,"SS - E/S Nostrand Ave, 2nd SS N/O Ave K, 20""",999091,167177
+23650,"SS - E/S Nostrand Ave, 2nd SS N/O Ave W, 20""",1000612,156721
+23750,"SS - E/S Ocean Ave, 2nd SS N/O Ave R, IFO 2233 Ocean Ave,  20""",997371,160498
+23850,"SS - W/S Ocean Pkwy, 2nd SS S/O Ave V,  IFO 2252 Ocean Pkwy (@ Gravesend Neck, 1st S/O), 20""",993928,155802
+23900,"SS - S/S Atlantic Ave, BTW Schenck Ave & Barbey St, 48""",1015080,185857
+23950,"SS - S/S Liberty Ave, 1st SS E/O Sheridan Ave,  IFO 1146 Liberty Ave, 12""",1021191,186564
+24050,"SS - IFO 2940 W/S Ocean Ave, 2nd SS S/O Ave Y, 16""",998224,154096
+24150,"SS - IFO 2220 S/S Atlantic Ave, 2nd SS E/O Hopkinson Ave (Thomas S. Boyland St), 20""",1008575,185680
+24250,"SS - W/S 20th Ave, 1st SS S/O 58th St, 12""",989290,165338
+24300,"SS - E/S Ocean Pkwy, BTW Ave Z & Belt Pkwy, (median BTW Main & Svc Rd of Ocean Pkwy), 30""",993640,152726
+24350,"SS - W/S Brighton 11th St, 2nd SS S/O Cass Pl, IFO 82 Brighton 11th St, 12""",996121,150850
+24450,"SS - E/S Brooklyn Ave, 2nd SS S/O Linden Blvd, IFO 887 Brooklyn Ave, 20""",999844,176855
+24550,"SS - OPP 4106 N/S Glenwood Rd, 1st SS W/O E 42nd St, 12""",1001869,170545
+24650,"SS - N/S Linden Blvd, 1st SS E/O Bristol St, 12""",1009614,177814
+24700,"SS - S/S Ave P, BTW Coney Island Ave & E 12th St, (E/O Coney Island Ave), 60""",994790,161491
+24750,"SS - IFO 1660 W/S E 13th St, 2nd SS N/O Quentin Rd, 20""",995293,161067
+24850,"SS - N/S New Lots Ave, 1st SS W/O Shepherd Ave, 16""",1017701,182613
+24950,"SS - IFO 1169 N/S East New York Ave, 2nd SS W/O Ralph Ave, 12""",1005399,182198
+25050,"SS - W/S Pennsylvania Ave, 1st SS N/O Hegeman Ave, IFO 718 Penn. Ave, 20""",1014257,179774
+25100,"SS - IFO 630 W/S Howard Ave, BTW Sutter & East New York Aves, 60""",1006510,182108
+25150,"SS - E/O Mother Gaston Blvd, 2nd SS N/O Livonia Ave, 12""",1010559,181082
+25250,"SS - S/S Foster Ave, 2nd SS E/O E 101st St, 20""",1011381,176277
+25350,"SS - W/S Remsen Ave, 1st SS N/O Ave M, 20""",1012292,170203
+25400,"SS - S/S Pacific St, BTW Franklin & Classon Aves, 48""",996612,186417
+25450,"SS - IFO 1030 S/S Park Pl, 2nd SS E/O Brooklyn Ave, 12""",999921,184474
+25550,"SS - E/S Bedford Ave, 2nd SS S/O Montgomery St, 20""",996201,181648
+25900,"SS - S/S Kings Highway, BTW E 35th & E 36th Sts, 60""",1000853,165505
+25950,"SS - E/S Flatbush Ave, 2nd SS N/O Ave R, IFO 2185 Flatbush Ave, 16""",1003601,164002
+26300,"SS - W/S Vermont St, BTW Jamaica & Sunnyside Aves, 48""",1013103,186926
+26500,"SS - IFO 336 W/S 6th Ave, BTW 3rd and 4th St, 66""",989404,183806
+26550,"SS - E/S 4th Ave, 1st SS S/O Sackett St, 20""",989092,186247
+26700,"SS - IFO 426 S/S Sterling Pl, BTW Underhill & Washington Aves, 72""",994175,185107
+26750,"SS - IFO 1110 N/S President St, 2nd SS E/O Bedford Ave, 12""",997012,182764
+26850,"SS - W/S W 37th St, 2nd SS n/O Neptune Ave, 12""",983249,150034
+26950,"SS - IFO 1058 N/S Metropolitan Ave, 2nd SS W/O Vandervoort Ave, 20""",1002385,199590
+27000,"SS - IFO 383 W/S Hooper St, BTW S 1st & S 2nd Sts, 72""",996850,197261
+27350,"SS - OPP 1035 S/S Clarkson Ave, 1st SS W/O E 93rd St, 12""",1005520,179355
+27450,"SS - IFO 1915 E/S Ocean Ave, 2nd SS N/O Ave O, 20""",996950,163407
+27550,"SS - N/S Farragut Rd, BTW E 81st & E 82nd Sts, 12""",1007600,172230
+27600,"SS - E/S Palmetto St, BTW Bushwick & Evergreen Aves, IFO 80 Palmetto St, 60""",1006714,191168
+27650,"SS - IFO 59 E/S Patchen Ave, 1st SS S/O Lexington Ave, 20""",1004372,190749
+27750,"SS - IFO 165 N/S S 1st St, 2nd SS W/O Driggs Ave, 20""",995052,199303
+27850,"SS - IFO 136 S/S Kent St, 2nd SS E/O Franklin St, 20""",996572,205514
+28050,"SS - IFO 579 N/S Macon St, 2nd SS W/O Patchen Ave, 20""",1004177,188340
+28450,"SS - IFO 2323 NE/S 60th St, 2nd SS W/O McDonald Ave, IFO 2323 60th St, 16""",991065,163335
+28550,"SS - E/S W 5th St, 2nd SS S/O Neptune Ave, IFO 2925 W 5th St, 12""",991951,149887
+28950,"SS - W/S 14th Ave, 1st SS N/O 52nd St, 20""",986578,169591
+29050,"SS - N/S 81st St, 1st SS E/O 19th Ave, 12""",985048,161009
+29300,"SS - E/S 5th Ave, BTW 24th & 25th Sts, 66""",985555,179528
+29350,"SS - W/S 4th Ave, BTW 28th & 29th Sts, 20""",984246,179280
+29450,"SS - IFO 4011 E/S 7th Ave, 1st SS S/O 40th St, 12""",984191,175300
+29500,"SS - W/S Ridge Blvd, BTW Bay Ridge Ave & 68th St, 48""",976339,171400
+29550,"SS - N/S Bay Ridge Ave, 2nd SS W/O 4th Ave, IFO 335 Bay Ridge Ave 12""",977311,170753
+29850,"SS - IFO 1425 E/S Pennsylvania Ave, 2nd SS S/O Schroeders Ave, 20""",1017420,174983
+3ISL3,"SS - Wards Island, DEP Water Pollution Control Plant, BTW 1st & 2nd security gates, OPP traffic circle",1005336,225499
+3ISL4,"SS - Randalls Island, OPP exit ramp to Qns, next to golf driving range, S/O of Police Launch Repair Shop",1004896,230380
+30050,"SS - IFO 8 E/S Centre Market Place, 2nd SS N/O Grand St, 12""",984875,201591
+30150,"SS - E/S 1st Ave, 1st SS S/O E 3rd St,  OPP 49 1st Ave, 12""",987725,203176
+30250,"SS - OPP 280 N/S Madison St, 2nd SS W/O Montgomery St, 12""",988016,199056
+30350,"SS - IFO 90 E/S Pitt St, 2nd SS N/O Rivington St, 12""",989223,201145
+30450,"SS - N/S Water St, 2nd SS E/O Catherine Slip, 12""",985554,197941
+30550,"SS - E/S Water St, 1st SS S/O Maiden La (IFO Wall St Plaza), 20""",982568,196479
+30750,"SS - IFO 269 N/S W 140th St, 2nd SS E/O Frederick Douglass Blvd (8th Ave), 12""",999891,237824
+30850,"SS - IFO 230 S/S E 125th St, 2nd SS E/O 3rd Ave, 12""",1002385,231847
+30950,"SS - W/S South End Ave, 2nd SS N/O West Thames St, 20""",979476,197553
+31050,"SS - IFO 370 W/S Greenwich St, 1st SS N/O Franklin St, 20""",981361,201439
+31200,"SS - W/S Amsterdam Ave, BTW W 177th & W 178th Sts, IFO 2374 Amsterdam Ave, 48""",1002902,247504
+31350,"SS - E/S Bedford St, 1st SS S/O Grove St, IFO 90 Bedford St, 12""",982777,206084
+31450,"SS - IFO 22 N/S Howard St, BTW Crosby & Lafayette Sts, 12""",984155,201407
+31550,"SS - OPP 329 S/S W 18th St, 2nd SS E/O 9th Ave, 12""",983716,209861
+31650,"SS - N/S E 77th St, 2nd SS W/O 3rd Ave, 12""",995588,221044
+31750,"SS - IFO 427 N/S W 26th St, 2nd SS W/O 9th Ave, 12""",983942,212144
+31850,"SS - IFO 82 S/S Warren St, 2nd SS E/O Greenwich St, 12""",981300,199881
+31950,"SS - IFO 313 N/S W 47th St, 2nd SS W/O 8th Ave, 12""",987340,216552
+32050,"SS - IFO 49 N/S W 96th St, 2nd SS W/O Central Park West, 12""",993434,228077
+32150,"SS - W/S St Nicholas Ave, 1st SS N/O 174th St, IFO 1281 St. Nicholas Ave, 12""",1001666,247137
+32200,"SS - S/S W 150th St, BTW Convent & St Nicholas Aves, IFO 408 W 150th St 30""",999894,240792
+32350,"SS - IFO 116 E/S Ave C, 2nd SS N/O E 7th St, 12""",990189,203193
+32400,"SS - E/S 1st Ave, BTW E 29th & E 30th Sts, 48""",991111,209292
+32550,"SS - IFO 271 W/S Ave C, 1st SS S/O E 16th St, 20""",991177,205146
+32650,"SS - IFO 14 S/S W 18th St, 2nd SS W/O 5th Ave, 12""",986146,208516
+32750,"SS - S/S E 57th St, 2nd SS E/O 3rd Ave, 12""",993663,215984
+32850,"SS - IFO 138 S/S E 37th St, 2nd SS E/O Lexington Ave, 12""",990374,211810
+32950,"SS - W/S 1st Ave, 1st SS S/O E 25th St, IFO 421 1st Ave, 12""",990365,208138
+33050,"SS - N/S W 62nd St, 2nd SS E/O Amsterdam Ave, 12""",988401,220494
+33100,"SS - E/S 10th Ave/Harlem River Dr. (SS S/O Dyckman St on bike path in park), 30""",1005641,252089
+33150,"SS - IFO 200 W/S Nagle Ave, 2nd SS N/O Dyckman St, 12""",1005456,253444
+33250,"SS - IFO 925 W/S West End Ave, 1st SS N/O W 105th St, 12""",992843,231209
+33300,"SS - S/S W 125th St, BTW 7th & 8th Aves (IFO Lane Bryant Store), 48""",998315,234102
+33450,"SS - IFO 135 N/S W 112th St, 2nd SS W/O St Nicholas Ave, 12""",997082,230895
+33550,"SS - IFO 115 N/S E 67th St, 2nd SS W/O Lexington Ave, 12""",993886,218935
+33600,"SS - W/S 2nd Ave, BTW E 42nd St & 43rd Sts, IFO 801 2nd Ave, 48""",991963,212570
+33700,"SS - IFO 69 W/S St Nicholas Ave, BTW W 113th & W 114th Sts, 48""",997356,231253
+33850,"SS - IFO 155 N/S E 85th St, 1st SS E/O Lexington Ave, 12""",996612,222939
+33950,"SS - N/S E 104th St, 2nd SS E/O 3rd Ave, 12""",999690,227009
+34050,"SS - IFO 611 N/S W 181st St, 1st SS W/O St Nicholas Ave, 12""",1002425,248841
+34150,"SS - N/S W 151st St, 2nd SS W/O Amsterdam Ave, IFO 529 151st St, 12""",999120,241564
+34200,"SS - S/S W 97th St, BTW Columbus & Amsterdam Ave, 36""",993173,228471
+34300,"SS - S/S W 40th St, BTW Broadway & 7th Ave, 48""",987649,214195
+34350,"SS - E/S 6th Ave, BTW W 37th & W 38th Sts, IFO 1016 6th Ave, 20""",988136,213267
+34550,"SS - IFO 133 N/S 128th St, 2nd SS W/O Lenox Ave, 12""",999264,234562
+34650,"SS - IFO 1066 E/S St Nicholas Ave, BTW W 163rd & W 164th Sts, 12""",1000866,244313
+34700,"SS - S/S W 165th St, BTW Edgecombe & Amsterdam Aves, 30""",1001663,244320
+34850,"SS - OPP 40 N/S W 53rd St, 2nd SS E/O 6th Ave, IFO MOMA 12""",990391,216650
+34950,"SS - IFO 686 S/S Academy St, 2nd SS W/O Broadway St, 12""",1004822,255197
+35000,"SS - S/S W 93rd St, btw Columbus Ave & Central Park West, 30""",993412,227105
+35050,"SS - IFO 565 N/S W 125th St, 1st SS W/O Old Broadway, 20""",995934,236325
+35100,"SS - E/S Central Park West, BTW W 93rd & W 94th Sts, 30""",993736,227094
+35150,"SS - IFO 21 E/S Bennett Ave, 2nd SS N/O W 181st St, 20""",1001925,249470
+35200,"SS - S/S W 65th St, BTW Broadway & Central Park West, 36""",989646,220635
+35350,"SS - IFO 541 N/S W 207th (Emerson) St, 1st SS E/O Sherman Ave, 12""",1006457,254634
+35450,"SS - IFO 500 N/S E 76th St, 2nd SS E/O York Ave, 12""",997934,219442
+35550,"SS - N/S Washington Square S, 1st SS W/O Washington Square E (OPP 70 Washington Square E), 12""",985154,205130
+35650,"SS - N/S W 25th St, 2nd SS W/O Broadway,  OPP 28 W 25th St 12""",986871,210227
+35750,"SS - N/S W 83rd St, 2nd SS W/O Central Park West, 12""",992124,224820
+35800,"SS - N/S E 85th St, BTW 5th & Madison Aves,  OPP 16 E 85th St, 36""",995459,223581
+35900,"SS - IFO 168 W/S 5th Ave, BTW E 21st & E 22nd Sts, 48""",986915,209114
+36000,"SS - S/S E 68th St, BTW 5th & Madison Aves, 36""",993046,219645
+36100,"SS - IFO 1212 E/S 6th Ave, BTW W 47th & W 48th Sts, 20""",989398,215557
+36200,"SS - W/S 5th Ave, BTW W 8th St & Washington Square N, 48""",985124,205874
+36350,"SS - IFO 165 N/S E 112th St, 1st SS E/O Lexington Ave, 12""",1000097,229237
+36500,"SS - E/S Broadway, BTW Howard & Grand Sts, 30""",983915,201605
+36600,"SS - IFO 87 E/S Bowery, BTW Hester & Canal Sts, 36""",985508,200478
+36700,"SS - S/S South St, BTW Rutgers Slip & Jefferson Sts, 30""",987453,197979
+36950,SS - W/S Main St. Roosevelt Island (north of bridge) - 2nd SS N/O FDNY SOC circle,999939,219046
+37300,"SS - IFO 3401 W/S Broadway, BTW W 138th & W 139th Sts, 36""",997037,238820
+37450,"SS -OPP 532 N/S W 111st St, 2nd SS W/O Amsterdam Ave, 12""",993850,232387
+37950,"SS - IFO 325 N/S E 12th St, 2nd SS E/O 2nd Ave, 12""",988485,205450
+38150,"SS - IFO 121 N/S W 72nd St, 2nd SS W/O Columbus Ave, 12""",989901,222686
+38250,"SS - IFO 309 N/S E 87th St, 2nd SS W/O 1st Ave, 12""",997994,222826
+38300,"SS - E/S Amsterdam Ave, BTW W 179th & W 180th Sts (IFO DEP Pump Station), 36""",1003227,247967
+38650,"SS - OPP 238 N/S W 112th St, 2nd SS E/O 8th Ave (Fredrick Douglass), 12""",996500,231218
+39200,"SS - E/S Amsterdam Ave, BTW W 61st & W 62nd Sts, 48""",988030,220500
+39400,"SS - S/S W 62nd St, BTW Columbus Ave & Broadway, 48""",989043,220395
+39550,"SS - W/S Park Ave, 1st SS S/O E 95th St, 12""",997170,225580
+39550,"SS - W/S Park Ave, 1st SS S/O E 95th St, 12""",997172,225580
+39650,"SS - IFO 229 N/S E 49th St, 2nd SS W/O 2nd Ave, 12""",992565,214253
+39750,"SS - IFO 321 N/S E 71st St, 2nd SS W/O 1st Ave, 12""",995942,218935
+39800,"SS - W/S Broadway, BTW W 76th & W 77th Sts, 36""",989480,224221
+39950,"SS - IFO 601 W/S West End Ave, 1st SS N/O W 89th St, 12""",990776,227477
+3SC26,"Shaft 26 of New Croton Aqueduct, 179th St Pumping Station.",1003134,247853
+4ISL5,"SS - Rikers Island, traffic island OPP James A. Thomas Ctr, 14-14 Hazen St",1015316,229741
+40150,"SS - N/S 27th Ave, 1st SS E/O 2nd St, IFO 2-07 27th Ave, 12""",1002251,221752
+40200,"SS - S/S 19th Ave, BTW 41st & Steinway Sts, IFO 40-14 19th Ave, 60""",1012206,222705
+40250,"SS - IFO 22-26 W/S Steinway St, 2nd SS S/O Ditmars Blvd, 12""",1010037,220644
+40300,"SS - IFO 12 - 23 SE/S Jackson Ave, BTW 48th & 49th Aves, 72""",998105,210271
+40350,"SS - N/S 41st Ave, 2nd SS W/O 21st St, 12""",1000003,214134
+40450,"SS - OPP 33-02 N/S 48th Ave, 1st SS E/O 33rd St, 12""",1003047,209194
+40550,"SS - W/S 61st (Bush) St, 1st SS S/O 47th Ave, 12""",1011000,208696
+40600,"SS - E/S 89th St, BTW Northern Blvd & 32nd Ave, 72""",1017800,215038
+40650,"SS - IFO 30-12 W/S 94th St, 1st SS S/O 30th Ave, 12""",1018876,216530
+40750,"SS - N/S Northern Blvd, 1st SS W/O 78th St, 12""",1014894,214445
+40800,"SS - E/S 62nd St, BTW 37th Ave & Broadway, 48""",1011829,212286
+40850,"SS - IFO 4205 E/S 77th St, 1st SS S/O Woodside Ave, 12""",1015318,210104
+40950,"SS - W/S 94th St, 2nd SS S/O 41st Rd , Case St, 12""",1019803,210877
+41050,"SS - IFO 86-31 W/S 57th Ave, 2nd SS S/O Seabury Ave, 12""",1018708,206370
+41100,"SS - IFO 94-03 S/S Alstyne Ave, BTW Junction Blvd & 94th St, 48""",1020261,209842
+41150,"SS - OPP 110-08 W/S Colonial Ave, 2nd SS S/O Horace Harding Expwy, 12""",1026226,207866
+41250,"SS - SW/S LIE (service Rd), 1st SS E/O 71st St, 12""",1014728,203714
+41300,"SS - S/S Cypress Ave, BTW Dekalb Ave & Stockholm St, 60""",1007301,196633
+41350,"SS - W/S Menahan St, 1st SS N/O Onderdonk Ave, 12""",1009308,196373
+41450,"SS - OPP 18-20 W/S Decatur St, 2nd SS S/O Forest Ave, 12""",1012510,193596
+41550,"SS - IFO 98-05 N/S 63rd Rd, 1st SS E/O 98th St, 12""",1023300,205981
+41600,"SS - IFO 93-29 N/S Queens Blvd, BTW 62nd Dr & 62nd Ave, 72""",1021543,205810
+41650,"SS - IFO 106-15 N/S Queens Blvd (service Rd), 2nd SS E/O Yellowstone Blvd, 20""",1026792,202666
+41750,"SS - OPP 104-41 SW/S Ditmars Blvd, BTW 24th Rd & 25th Ave, 12""",1021435,218787
+41850,"SS - IFO 67-02 W/S Bell Blvd, 1st SS S/O 67th Ave, 12""",1050755,210470
+41900,"SS - W/S Fresh Meadow La, Corner N/O Booth Memorial Ave, 20""",1040557,209716
+41950,"SS - IFO 170-05 N/S 45th Ave, 1st SS E/O 170th St, 12""",1040549,214712
+42100,"SS - S/S Metropolitan Ave, 1st SS E/O 80th St, 48""",1019954,199151
+42150,"SS - IFO 68-78 W/S 76th St, 1st N/O 69th Rd, 12""",1018772,197537
+42300,"SS - S/S 48th Ave, BTW 42nd & 43rd Sts, 72""",1005648,208750
+42350,"SS - IFO 41-18 W/S 39th St, 2nd SS S/O Skillman Ave, 12""",1004860,211464
+42700,"SS - OPP 64-65 W/S 210th St, N/O 67th Ave, 48""",1049282,209900
+42750,"SS - IFO 64-50A W/S 188th St, 2nd SS S/O 64th Ave, 20""",1043933,207580
+42850,"SS - IFO 82-28 W/S Parsons Blvd, BTW Goethals Ave & Village Rd",1037347,200782
+42950,"SS - IFO 80-56 W/S 193rd St, 1st SS N/O 81st Ave, 12""",1046079,204823
+43050,"SS - S/S Park Lane S, 1st SS W/O 102nd St, 20""",1026611,193874
+43150,"SS - W/S 88th St, 2nd SS S/O 149th Ave, 12""",1026601,183111
+43250,"SS - IFO 87-48 W/S 78th St, 1st SS N/O 88th Ave, 12""",1022120,190652
+43550,"SS - W/S 125th St, 1st SS S/O 15th Ave, 20""",1027699,225142
+43600,"SS - E/S Union St, BTW Northern Blvd & 35th Ave, 72""",1031944,218059
+43650,"SS - E/S Whitestone Expy (service Rd), 2nd SS S/O Downing St, 12""",1029519,219268
+43750,"SS - N/S 20th Ave, 2nd SS W/O Whitestone Expy, 12""",1031507,224135
+43900,"SS - N/S 39th Ave, BTW 215th Pl & 216th St, IFO 215-37 39th Ave 24""",1048519,218452
+43950,"SS - N/S 26th Ave, BTW 210th Pl & 211st St (IFO Sony Theatres), 12""",1045509,222777
+44150,"SS - IFO 20-44 W/S 21st St, 2nd SS N/O 21st Ave, 20""",1008141,224609
+44250,"SS - IFO 50-33 N/S Broadway, 2nd SS E/O 49th St, 12""",1009146,214314
+44350,"SS - IFO 21-55 N/S 34th Ave, 1st SS W/O 24th St, 12""",1002964,216964
+44450,"SS - IFO 223-03 N/S Manor Rd, 2nd SS W/O 229th St, 12""",1055329,206333
+44550,"SS - N/S 17th Ave, 1st SS E/O 201st St, 12""",1041759,224449
+44700,"SS - N/S Jewel Ave, BTW 172nd & 173rd Sts, 60""",1040470,205827
+44750,"SS - IFO 67-02 W/S Parsons Blvd, 2nd SS N/O Jewel Ave, 12""",1036698,206954
+44950,"SS - W/S Selfridge St, 1st SS N/O Olcott St, 12""",1023963,199221
+45000,"SS - W/S Douglaston Pkwy, BTW 67th & 68th Aves, 48""",1056313,213038
+45050,"SS - IFO 253-38 S/S 61st Ave, 1st SS W/O 255th St, 20""",1060423,215516
+45250,"SS - E/S Beach 58th St, 2nd SS N/O Beach Channel Dr, 12""",1043088,156447
+45650,"SS - IFO 107-02 W/S 109th St, 1st SS S/O 107th Ave, 12""",1030884,187685
+45700,"SS - E/S Cross Bay Blvd, BTW 156th Ave & Belt Pkwy, 48""",1028340,181542
+45750,"SS - N/S 161st Ave, 2nd SS W/O 83rd St, 12""",1026111,177745
+45850,"SS - N/S Sutter Ave, 1st SS E/O 91st St,  IFO 91-01 Sutter Ave, 12""",1026984,185810
+46100,"SS - IFO 691 S/S Empire Ave, BTW Virginia St & Harris St, 12"" (branch from 48"" into regulator)",1055532,160561
+46150,"SS - IFO 20-23 S/S Seagirt Blvd, 2nd SS W/O Beach 20th St, 12""",1052304,156146
+46250,"SS - S/S Beach Channel Dr, 2nd SS E/O Beach 126th St, 12""",1026511,151266
+46350,"SS - S/S Astoria Blvd, 1st SS W/O 110th St, 12""",1022904,216238
+46450,"SS - IFO 150-03 N/S Northern Blvd, 1st SS E/O 150th St, 12""",1035671,218150
+46850,"SS - IFO 63-01 NW/S Eliot Ave, BTW 63rd & 64th Sts, 12""",1012186,200020
+46950,"SS - IFO 118-40 S/S Metropolitan Ave, 2nd SS E/O 118th St IFO 118-18",1030452,196724
+47150,"SS - IFO 147-19 N/S 7th Ave, 2nd SS W/O 149th St, 12""",1033893,228531
+47500,"SS - IFO 20-10 W/S Cross Bay Blvd, BTW W 20th & W22nd Rd, 36""",1033971,157361
+47550,"SS - E/S Beach 105th St, 2nd SS N/O Shore Front Pkwy, 12""",1032730,151392
+47650,"SS - N/S Rockaway Point Blvd, 2nd SS W/O Beach 199th St, 20"" (end of divided h'way)",1009613,143617
+47750,"SS - IFO 80 - 29 E/S Little Neck Pkwy, 2nd SS N/O 81st Ave, 20""",1062706,209940
+47850,"SS - IFO 246-35 N/S Van Zandt Ave, 1st SS W/O 248th St, 12""",1057118,217216
+48600,"SS - W/S Rockaway Blvd, BTW S Conduit Ave & 157th St, 48""",1045300,182156
+48700,"SS - IFO 160-05 N/S Cross Island Pkwy (service Rd), BTW 160th & 161st Sts, 20""",1039015,225892
+49200,"SS - S/S Jewel Ave, BTW Main St & 141st Sts, 72""",1033124,205328
+50050,"SS - N/S Hylan Blvd, 2nd SS W/O Edgewater St, 12""",966574,163485
+50200,"SS - IFO 93 N/S Austin Place, BTW Victory Blvd & Ward Ave, 84""",960455,169298
+50250,"SS - IFO 937 N/S Victory Blvd, 2nd SS E/O Highland Ave, 20""",957294,165843
+50300,"SS - W/S Clove Rd, 1st S/O of Genesee St, SI, 72"" (formerly site 00023)",955759,163383
+50600,"SS - N/S Victory Blvd, BTW Pike St & W/O Westervelt Ave, IFO 199 Victory Blvd, 20""",961300,171090
+50650,"SS - E/S York Ave, 1st SS N/O Pauw St, 8""",959871,172693
+50750,"SS - E/S Woodhull Ave, 1st SS S/O Albourne Ave, 8""",929606,132752
+50850,"SS - IFO 512 W/S Arlene St,1st SS N/O Dawson Ct, 12""",938156,159775
+51050,"SS - IFO 163 E/S Tysens La, 2nd SS N/O Coverly St, 12""",948843,147129
+51100,"SS - IFO 1759 NW/S Hylan Blvd, BTW Seaview & Liberty Aves, 48""",958541,152868
+51150,"SS - IFO 650 S/S Tysens La, 2nd SS E/O Falcon Ave, 12""",952718,144073
+51250,"SS - N/S Clarke Ave, 2nd SS W/O Amber St, 8""",945963,145822
+51350,"SS - W/S Clove Rd, 1st SS S/O Tyler Ave (also 1st S/O Broadway), 12""",952915,166107
+51450,"SS - IFO 119 E/S Justin Ave, BTW Hooper & O'Gorman Aves, 12""",946956,141680
+51550,"SS - W/S Huguenot Ave, 1st SS S/O Sinclair Ave, 12""",929600,136603
+51850,"SS - IFO 67 N/S Hill St, 2nd SS W/O Tompkins Ave, 12""",961818,165626
+51900,"SS - N/S Vanderbilt Ave, BTW Bay St & Tompkins Ave, 66""",963592,165738
+51950,"SS - N/S Sobel Ct, 1st SS E/O Bowen St, 12""",961126,162906
+52000,"SS - W/S Clove Rd, Corner of S/O Richmond Terrace, 24""",949042,171355
+52050,"SS - IFO 218 W/S Nicholas Ave, 1st SS S/O Charles Ave, 12""",945148,170575
+52150,"SS - N/S Goethals Rd N, BTW Domain & Cooke Sts, 12""",940112,164049
+52350,"SS - OPP 133 W/S Giffords La, 1st SS N/O Dewey Ave, 12""",942056,141349
+52450,"SS - OPP 526 N/S Travis Ave, 1st SS E/O Merrymount St, 12""",940364,154531
+52550,"SS - IFO 43 N/S Dongan Hills Ave, 2nd SS N/O Jefferson St, 12""",956309,153545
+53500,"SS - E/S Targee St, S/O Baltic Ave, IFO 935 Targee St, 48""",959018,160070
+53550,"SS - IFO 130 W/S Lamport Blvd, 2nd SS S/O Kramer St, 8""",962638,156213
+55450,"SS - W/S Seguine Ave, 1st SS S/O Kingsland St, 12""",929492,127613
+56000,"SS - N/S Hylan Blvd, opposite Holten Ave, 24""",930020,128865
+56200,"SS - IFO 855 E/S Bloomingdale Rd, BTW Wirt & Candon Aves, 20""",923133,138620
+56300,"SS - E/S Richmond Ave, 1st SS S/O Vedder Ave, 20""",942510,165902
+56400,"SS - IFO 328 S/S Henderson Ave, BTW Westbury & Brentwood Aves, 20""",955493,172174
+57200,"SS - W/S Richmond Ave, BTW Genesee & Scranton Aves, 48""",937502,140778
+57750,"SS - IFO 264 W/S Lockman Ave, 2nd SS S/O Brabant St, 12""",939334,169106
+58150,"SS - IFO 3262 W/S Richmond Ave, 1st SS N/O Gurley Ave, 12""",937093,143243
+58250,"SS - IFO 578 E/S Drumgoole Rd East, 2nd SS N/O Arden Ave, 12""",934244,138616
+58300,"SS - IFO 4299 NW/S Hylan Blvd, BTW W""ester & Thornycroft Aves, 48""",941916,134558
+58350,"SS - IFO 139 NE/S W""ester Ave, 2nd SS N/O Hylan Blvd, 8""",941317,134810
+58400,"SS - IFO 408 W/S Woodrow Rd, BTW Arden Ave & Almond St, 20""",932029,139673
+58600,"SS - N/S Hylan Blvd, 1st SS E/O Page Ave, 20""",920455,124432
+58650,"SS - IFO 510 W/S Main St, 2nd SS S/O Hylan Blvd, 12""",916207,122378
+58850,"SS - IFO 255 N/S Westwood Ave, 1st SS W/O Franklin Pl, 12""",951160,160296
+58950,"SS - IFO 1085-15 N/S Castleton Ave, 2nd SS W/O Broadway, 12""",951286,170459
+59050,"SS - IFO 989 N/S Forest Ave, 2nd SS W/O Clove Rd, 12""",950229,167908
+59300,"SS - N/S Victory Blvd, 1st SS E/O Royal Oak Rd, 16""",952850,162957
+59350,"SS - IFO 1824 S/S Victory Blvd, BTW Raymond Ave & Lester St, 12""",949781,162605
+76150,"SS - IFO 160-20 S/S 85th Ave, BTW 160th & 161st Sts",1038620,198864
+76300,"SS - N/S Hillside Ave & BTW 213 Pl & 214 St, 16""",1052705,203691
+76450,"SS - OPP 139-50 N/S 85th Dr, 2nd SS E/O 139th St",1035350,197598
+76550,"SS - N/S Baisley Blvd, W/O Smith St",1045511,186628
+76650,"SS - IFO 87-60 W/S Chevy Chase St, 2nd S/O Henley Rd",1046472,200528
+76750,"SS - IFO 160-10 S/S 89th Ave, 2nd E/O Parsons Blvd",1039534,196579
+76850,"SS - IFO 111-46 W/S Farmers Blvd, 1st SS N/O Keeseville Ave",1049525,194731
+76950,"SS - IFO 90-20 W/S Francis Lewis Blvd, 1st SS S/O 90th Ave",1051654,200734
+77050,"SS - IFO 93-40 E/S 217th St, S/O 94th Ave (IFO - Queens Village Library)",1056499,201702
+77150,"SS - N/S Linden Blvd, 1st SS W/O 230th St",1058674,191704
+77350,"SS - S/S Merrick Blvd, BTW 222nd St & 223rd St, IFO 222-18 Merrick Blvd",1054559,186410
+77550,"SS - IFO E/S 222nd St, 2nd S/O 91st Rd",1057716,204264
+77650,"SS - OPP 110-52 E/S 207th St, 1st N/O 111th Ave",1053711,196581
+77750,"SS - OPP 120-11 W/S 237th St, 1st SS S/O 120th Ave",1059645,189067
+77850,"SS - N/S 90th Ave, BTW 179th & 180th Sts",1044675,198391
+78050,"SS - OPP 110-38 E/S Springfield Blvd, 1st S/O 110th Rd",1056660,197103
+78150,"SS - IFO 85-31 E/S 120th St, 2nd SS N/O Hillside Ave",1031161,195158
+78350,"SS - N/S Hillside Ave, BTW 189th & 190th Sts",1047324,200078
+78450,"SS - IFO 88-18 W/S Hollis Court Blvd, 2nd SS S/O Hillside Ave",1052428,202866
+78550,"SS - W/S Springfield Blvd, 2nd SS S/O 116th Ave",1055425,193468
+78650,"SS -N/S Linden Blvd, 1st SS E/O 191st St (IFO Queens Library)",1050830,191629
+78850,"SS - OPP 109-36 E/S 160th St, 2nd SS N/O 110th Ave",1042080,191964
+79050,"SS - S/S South Conduit Ave, 1st SS E/O 221st St",1051749,181801
+79150,"SS - IFO 127-11 E/S Farmers Blvd (Keyspan), 2nd SS N/O Merrick Blvd",1050498,187418
+79450,"SS - OPP 127-18 N/S Foch Blvd, 1st SS W/O 128th St",1036997,185580
+79550,"SS - OPP 109-11 W/S 127th St, 2nd SS S/O 109th Ave",1035573,188405
