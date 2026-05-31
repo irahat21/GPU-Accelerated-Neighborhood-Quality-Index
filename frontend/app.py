@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import threading
 from pathlib import Path
 
 import geopandas as gpd
@@ -69,6 +70,8 @@ app = Flask(__name__)
 COMBINED_DF: pd.DataFrame | None = None
 CD_GDF: gpd.GeoDataFrame | None = None
 MAP_PAYLOAD_CACHE: dict[str, dict] = {}
+MAP_CACHE_LOCK = threading.Lock()
+MAP_WARMUP_STARTED = False
 
 
 def get_borough_from_cd(cd_id: str) -> str:
@@ -701,12 +704,39 @@ def get_map_payload(geography: str) -> dict | None:
     if geography not in GEOGRAPHY_CONFIGS:
         return None
     if geography not in MAP_PAYLOAD_CACHE:
-        print(f"[startup] building {geography} view...")
-        MAP_PAYLOAD_CACHE[geography] = build_payload_for_geography(geography)
+        with MAP_CACHE_LOCK:
+            if geography not in MAP_PAYLOAD_CACHE:
+                print(f"[startup] building {geography} view...")
+                MAP_PAYLOAD_CACHE[geography] = build_payload_for_geography(geography)
     return MAP_PAYLOAD_CACHE[geography]
 
 
 SCORES = get_map_payload("community_district")["scores"]
+
+
+def warm_additional_geographies() -> None:
+    for geography in ("borough", "nta", "zip"):
+        try:
+            get_map_payload(geography)
+        except Exception as exc:
+            print(f"[startup] failed to warm {geography}: {exc}")
+
+
+def start_map_cache_warmup() -> None:
+    global MAP_WARMUP_STARTED
+    if MAP_WARMUP_STARTED:
+        return
+
+    with MAP_CACHE_LOCK:
+        if MAP_WARMUP_STARTED:
+            return
+        MAP_WARMUP_STARTED = True
+
+    thread = threading.Thread(target=warm_additional_geographies, daemon=True)
+    thread.start()
+
+
+start_map_cache_warmup()
 
 
 @app.route("/")

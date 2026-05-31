@@ -330,7 +330,7 @@ function showTooltip(primaryArea, primaryData, secondaryArea = null, secondaryDa
         `;
     } else {
         panel.classList.remove("comparison-mode");
-        closeBtn.style.display = "none";
+        closeBtn.style.display = pinnedArea === primaryArea ? "flex" : "none";
         contentDiv.innerHTML = renderAreaBlock(primaryArea, primaryData, true);
     }
 
